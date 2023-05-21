@@ -1,0 +1,22 @@
+﻿<Window x:Class="WareHouseWPF.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:local="clr-namespace:WareHouseWPF.Views"
+        xmlns:control = "clr-namespace:WareHouseWPF.Controls.Spinner"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="true"
+        xmlns:p="clr-namespace:WareHouseWPF.Services.Localisation"
+        mc:Ignorable="d"
+        Title="Warehouse service" 
+        Height="500"
+        Width="900"
+        Background="{DynamicResource PageBackground}">
+
+    <Grid>
+       
+        <ContentControl prism:RegionManager.RegionName="MainRegion" />
+    </Grid>
+</Window>

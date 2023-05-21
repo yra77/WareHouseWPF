@@ -1,0 +1,53 @@
+﻿<prism:PrismApplication x:Class="WareHouseWPF.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WareHouseWPF"
+             xmlns:prism="http://prismlibrary.com/">
+    <Application.Resources>
+
+        <ResourceDictionary>
+
+            <!--Color-->
+            <SolidColorBrush x:Key="PageBackground">White</SolidColorBrush>
+            <SolidColorBrush x:Key="TopLineBackground">Teal</SolidColorBrush>
+            <SolidColorBrush x:Key="SecondLabel">LightGray</SolidColorBrush>
+            <SolidColorBrush x:Key="Brown">#852934</SolidColorBrush>
+
+            <!--Main-->
+            <SolidColorBrush x:Key="m_Background" >Transparent</SolidColorBrush>
+            <SolidColorBrush x:Key="m_InputBorderBrush" >LightGray</SolidColorBrush>
+            <SolidColorBrush x:Key="m_InputBackground">Transparent</SolidColorBrush>
+            <SolidColorBrush x:Key="m_ButtonBorder">Transparent</SolidColorBrush>
+            <SolidColorBrush x:Key="m_ButtonBackground">#36A3C0</SolidColorBrush>
+            <SolidColorBrush x:Key="m_ButtonText">White</SolidColorBrush>
+            <SolidColorBrush x:Key="m_HighText">#36A3C0</SolidColorBrush>
+            <SolidColorBrush x:Key="m_Hyperlink">Black</SolidColorBrush>
+            <SolidColorBrush x:Key="m_ErrorText">Red</SolidColorBrush>
+
+            <!--Home-->
+            <SolidColorBrush x:Key="h_searchBorder" >LightGray</SolidColorBrush>
+            <SolidColorBrush x:Key="h_searchBackground">Transparent</SolidColorBrush>
+            <SolidColorBrush x:Key="h_BtnSearchBackground">#36A3C0</SolidColorBrush>
+            <SolidColorBrush x:Key="h_ButtonSearchBorder">Transparent</SolidColorBrush>
+            <SolidColorBrush x:Key="h_ButtonSearchText">White</SolidColorBrush>
+            <SolidColorBrush x:Key="h_DateBorder">#36A3C0</SolidColorBrush>
+            <SolidColorBrush x:Key="h_DateBackground">Transparent</SolidColorBrush>
+
+            <SolidColorBrush x:Key="h_BtnLogoutBackground">LightCoral</SolidColorBrush>
+            <SolidColorBrush x:Key="h_BtnLogoutTextColor">White</SolidColorBrush>
+            <SolidColorBrush x:Key="h_rightBtnBackground">#36A3C0</SolidColorBrush>
+            <SolidColorBrush x:Key="h_rightBtnText">White</SolidColorBrush>
+            
+            <!--Home clientlist-->
+            <SolidColorBrush x:Key="hc_btnAdd">#36A3C0</SolidColorBrush>
+            <SolidColorBrush x:Key="hc_btnAddText">White</SolidColorBrush>
+
+            <!--Settings-->
+            <SolidColorBrush x:Key="s_text">#36A3C0</SolidColorBrush>
+            <SolidColorBrush x:Key="s_btnback">#36A3C0</SolidColorBrush>
+            <SolidColorBrush x:Key="s_btntext">White</SolidColorBrush>
+
+        </ResourceDictionary>
+
+    </Application.Resources>
+</prism:PrismApplication>
