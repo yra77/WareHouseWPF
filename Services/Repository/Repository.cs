@@ -187,7 +187,7 @@ namespace WareHouseWPF.Services.Repository
             }
             catch (Exception e)
             {
-                Console.WriteLine("Error Insert http - " + e.Message);
+                Console.WriteLine("Error update http - " + e.Message);
                 throw new Exception("Server Connection Error");
             }
 
@@ -205,6 +205,10 @@ namespace WareHouseWPF.Services.Repository
             else if (typeof(T) == typeof(ClientModel))
             {
                 path = Constants.PathConstant.CLIENTS_GET_URL;
+            }
+            else if (typeof(T) == typeof(Employee))
+            {
+                path = Constants.PathConstant.EMPLOYEES_GET_URL;
             }
 
             return path;

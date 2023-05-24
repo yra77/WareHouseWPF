@@ -111,6 +111,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\Entrys\MyTextBox.cs" />
+    <Compile Include="Properties\Resources.en1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.en.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Resources.uk.Designer.cs">
       <DependentUpon>Resources.uk.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -167,7 +173,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Behaviors\ListViewBehavior\ListViewBehaviors.cs" />
     <Compile Include="Constants\PathConstant.cs" />
     <Compile Include="Controls\Listviews\ClientList.xaml.cs">
       <DependentUpon>ClientList.xaml</DependentUpon>
@@ -242,7 +247,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.en.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.en.Designer.cs</LastGenOutput>
+      <LastGenOutput>Resources.en1.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -259,6 +264,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Behaviors\" />
+    <Folder Include="Controls\Dialog\" />
     <Folder Include="Helpers\" />
   </ItemGroup>
   <ItemGroup>
@@ -275,6 +282,12 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\warehouse_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\humans_icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\editphoto.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

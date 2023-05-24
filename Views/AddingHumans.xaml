@@ -7,12 +7,327 @@
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="true"
              xmlns:control = "clr-namespace:WareHouseWPF.Controls.Spinner"
+             xmlns:controls = "clr-namespace:WareHouseWPF.Controls.Entrys"
              xmlns:system="clr-namespace:System;assembly=mscorlib"
              xmlns:p="clr-namespace:WareHouseWPF.Services.Localisation"
-             mc:Ignorable="d">
-    
-    <Grid>
+             mc:Ignorable="d"
+             Background="{DynamicResource ah_background}">
 
-        
+    <Grid Margin="20,0,0,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="9*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0"
+                   Margin="0,20,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Source="../Images/humans_icon.png"/>
+
+            <TextBlock Grid.Column="1"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="16"
+                       FontFamily="Verdana"
+                       Foreground="{DynamicResource ah_textHigh}"
+                       Text="{p:Loc AddingHumanText}"/>
+        </Grid>
+
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="9*"/>
+            </Grid.ColumnDefinitions>
+
+            <ScrollViewer Grid.Column="1" Padding="10"
+                     HorizontalAlignment="Stretch">
+
+                <StackPanel >
+
+                    <TextBlock Text="{p:Loc Name}"
+                               Foreground="{DynamicResource ah_span}"
+                               FontFamily="Verdana"
+                                Margin="0,15,0,0"/>
+                    <controls:MyTextBox Height="25" 
+                                        SelectedType="text"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14" 
+                             Text="{Binding Path=General.Name}"/>
+
+                    <TextBlock Text="{p:Loc SecondName}"
+                               Foreground="{DynamicResource ah_span}"
+                               FontFamily="Verdana"
+                                Margin="0,15,0,0"/>
+                    <controls:MyTextBox Height="25"
+                                        SelectedType="text"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14"
+                             Text="{Binding Path=General.SecondName}"/>
+
+                    <TextBlock Text="{p:Loc DateOfBirth}"
+                               Foreground="{DynamicResource ah_span}"
+                               FontFamily="Verdana"
+                               Margin="0,15,0,0"/>
+                    <DatePicker Language="{Binding DatePickerLanguage, UpdateSourceTrigger=PropertyChanged}"
+                                IsDropDownOpen="False"
+                                SelectedDateFormat="Short"
+                                SelectedDate="{Binding Path=General.DateOfBirth}"/>
+
+                    <TextBlock Text="{p:Loc Email}"
+                               Foreground="{DynamicResource ah_span}"
+                               FontFamily="Verdana"
+                                Margin="0,15,0,0"/>
+                    <controls:MyTextBox Height="25"
+                                        SelectedType="email"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14"
+                             Text="{Binding Path=General.Email}"/>
+
+                    <TextBlock Text="{p:Loc Phone}"
+                               Foreground="{DynamicResource ah_span}"
+                               FontFamily="Verdana"
+                                Margin="0,15,0,0"/>
+                    <controls:MyTextBox Height="25"
+                                        SelectedType="digit"
+                                        MaxLength="10"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14"
+                             Text="{Binding Path=General.PhoneNumber}"/>
+
+                    <TextBlock Text="{p:Loc City}"
+                               Foreground="{DynamicResource ah_span}"
+                               FontFamily="Verdana"
+                                Margin="0,15,0,0"/>
+                    <controls:MyTextBox Height="25"
+                                        SelectedType="text"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14"
+                             Text="{Binding Path=General.City}"/>
+
+                    <TextBlock Text="{p:Loc Region}"
+                               Foreground="{DynamicResource ah_span}"
+                               FontFamily="Verdana"
+                                Margin="0,15,0,0"/>
+                    <controls:MyTextBox Height="25"
+                                        SelectedType="text"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14"
+                             Text="{Binding Path=General.Region}"/>
+
+                    <TextBlock Text="{p:Loc Street}"
+                               Foreground="{DynamicResource ah_span}"
+                               FontFamily="Verdana"
+                                Margin="0,15,0,0"/>
+                    <controls:MyTextBox Height="25"
+                                        SelectedType="text"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14"
+                             Text="{Binding Path=General.Street}"/>
+
+                    <TextBlock Text="{p:Loc House}"
+                               Foreground="{DynamicResource ah_span}"
+                               FontFamily="Verdana"
+                                Margin="0,15,0,0"/>
+                    <controls:MyTextBox Height="25"
+                                        SelectedType="digit"
+                                        MaxLength="5"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14"
+                             Text="{Binding Path=General.House}"/>
+
+                    <TextBlock Text="{p:Loc Apartment}"
+                               Foreground="{DynamicResource ah_span}"
+                               FontFamily="Verdana"
+                                    Margin="0,15,0,0"/>
+                    <controls:MyTextBox Height="25"
+                                        SelectedType="digit"
+                                        MaxLength="5"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14"
+                             Text="{Binding Path=General.Apartment}"/>
+
+
+                    <!--for client-->
+
+                    <StackPanel Margin="0,15,0,0"
+                                Visibility="{Binding IsClientVisible}">
+
+                        <TextBlock Text="{p:Loc Organization}"
+                               FontFamily="Verdana"
+                               Foreground="{DynamicResource ah_span}"/>
+                        <controls:MyTextBox Height="25"
+                                        SelectedType="text"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14"
+                             Text="{Binding Path=ClientMod.Organization}"/>
+
+                        <TextBlock Text="{p:Loc BankName}"
+                               Foreground="{DynamicResource ah_span}"
+                               FontFamily="Verdana"
+                                   Margin="0,15,0,0"/>
+                        <controls:MyTextBox Height="25"
+                                        SelectedType="text"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14"
+                             Text="{Binding Path=ClientMod.BanksAccount[0].Name}"/>
+
+                        <TextBlock Text="{p:Loc BankAccount}"
+                               Foreground="{DynamicResource ah_span}"
+                               FontFamily="Verdana"
+                                   Margin="0,15,0,0"/>
+                        <controls:MyTextBox Height="25"
+                                 SelectedType="digit"
+                             MaxLength="16"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14"
+                             Text="{Binding Path=ClientMod.BanksAccount[0].BankAccount}"/>
+
+                    </StackPanel>
+
+                    <!--for employee-->
+
+                    <StackPanel Visibility="{Binding IsEmployeeVisible}"
+                            Margin="0,15,0,0"
+                            VerticalAlignment="Center">
+
+                        <TextBlock Text="{p:Loc BankName}"
+                               Foreground="{DynamicResource ah_span}"
+                               FontFamily="Verdana"/>
+                        <controls:MyTextBox Height="25"
+                                        SelectedType="text"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14"
+                             Text="{Binding Path=EmployeeMod.BankAccount[0].Name}"/>
+
+                        <TextBlock Text="{p:Loc BankAccount}"
+                               Foreground="{DynamicResource ah_span}"
+                               Margin="0,15,0,0"
+                               FontFamily="Verdana"/>
+                        <controls:MyTextBox Height="25"
+                                            SelectedType="digit"
+                             MaxLength="16"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14"
+                             Text="{Binding Path=EmployeeMod.BankAccount[0].BankAccounts}"/>
+
+                        <TextBlock Text="{p:Loc Password}"
+                               Margin="0,15,0,0"
+                               FontFamily="Verdana"
+                               Foreground="{DynamicResource ah_span}"/>
+                        <controls:MyTextBox Height="25"
+                                 SelectedType="password"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14"
+                             Text="{Binding Path=EmployeeMod.Password}"/>
+
+                        <TextBlock Text="{p:Loc Age}"
+                               Margin="0,15,0,0"
+                               Foreground="{DynamicResource ah_span}"
+                               FontFamily="Verdana"/>
+                        <controls:MyTextBox Height="25"
+                                        SelectedType="digit"
+                             MaxLength="16"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14"
+                             Text="{Binding Path=EmployeeMod.Age}"/>
+
+                        <TextBlock Text="{p:Loc JobTitle}"
+                               Foreground="{DynamicResource ah_span}"
+                               FontFamily="Verdana"
+                               Margin="0,15,0,0"/>
+                        <controls:MyTextBox Height="25"
+                                        SelectedType="text"
+                             MaxLength="16"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14"
+                             Text="{Binding Path=EmployeeMod.JobTitle}"/>
+
+                        <TextBlock Text="{p:Loc Role}"
+                               Foreground="{DynamicResource ah_span}"
+                               FontFamily="Verdana"
+                               Margin="0,15,0,0"/>
+                        <controls:MyTextBox Height="25"
+                                        SelectedType="text"
+                             MaxLength="16"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14"
+                             Text="{Binding Path=EmployeeMod.Role}"/>
+
+                        <TextBlock Text="{p:Loc Photo}"
+                               Foreground="{DynamicResource ah_span}"
+                               FontFamily="Verdana"
+                               Margin="0,15,0,0"/>
+
+                        <Button Command="{Binding EditPhoto}"
+                                HorizontalAlignment="Left"
+                                Width="100"
+                                Height="100">
+                            <Image Source="{Binding PathPhoto, UpdateSourceTrigger=PropertyChanged}"/>
+                        </Button>
+                    </StackPanel>
+
+                </StackPanel>
+
+            </ScrollViewer>
+
+
+            <Grid Grid.Column="0"
+                  Margin="0,0,0,20">
+
+                <Button Content="{p:Loc Back}"
+                    Padding="5"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Left"
+                    FontFamily="Verdana"
+                    Background="{DynamicResource ah_btnback}"
+                    Foreground="{DynamicResource ah_btnbacktext}"
+                        Command="{Binding BackBtn}"/>
+
+                <Button Content="{p:Loc Agree}"
+                    FontFamily="Verdana"
+                    Foreground="{DynamicResource ah_btntext}"
+                    Background="{DynamicResource ah_btn}"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Margin="0,20,0,0"
+                    MinWidth="150"
+                    Padding="7"
+                    Command="{Binding AgreeBtn}"/>
+            </Grid>
+
+            <control:SpinnerControl Grid.Column="0" 
+                                    HorizontalAlignment="Center" 
+                                    VerticalAlignment="Center" 
+                                    Visibility="{Binding IsLoaded, UpdateSourceTrigger=PropertyChanged}"/>
+
+        </Grid>
+
     </Grid>
 </UserControl>

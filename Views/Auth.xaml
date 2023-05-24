@@ -60,7 +60,7 @@
 
                     <TextBlock Foreground="{DynamicResource SecondLabel}"
                                FontWeight="Bold"
-                               Text="Email"/>
+                               Text="{p:Loc Email}"/>
 
                     <TextBox HorizontalAlignment="Stretch" 
                              Background="{DynamicResource m_InputBackground}"
@@ -87,7 +87,7 @@
 
                     <TextBlock Foreground="{DynamicResource SecondLabel}"
                                FontWeight="Bold"
-                               Text="Password"/>
+                               Text="{p:Loc Password}"/>
 
                     <TextBox HorizontalAlignment="Stretch" 
                              Background="{DynamicResource m_InputBackground}"

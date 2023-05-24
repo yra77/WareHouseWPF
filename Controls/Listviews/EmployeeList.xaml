@@ -9,77 +9,148 @@
              xmlns:p="clr-namespace:WareHouseWPF.Services.Localisation"
              mc:Ignorable="d" >
 
-    <!--<ListView 
-                    Grid.Column="0"
-                    HorizontalContentAlignment="Center"
-                  ItemsSource="{Binding CoinsList}"
-                  SelectedItem="{Binding SelectedCoin}" 
-                  SelectedIndex="-1"
-                  SelectionMode="Single"
-                  Margin="10,10,10,10"
-                  Grid.Row="1">
+    <Grid Grid.Column="0">
 
-        <ListView.View>
-            <GridView>
-                <GridView.Columns>
+        <ListView HorizontalContentAlignment="Center"
+              ItemsSource="{Binding List}"
+              SelectedItem="{Binding SelectedItem}" 
+              SelectedIndex="-1"
+              SelectionMode="Single"
+              Margin="10,10,10,10"
+              Grid.Row="1">
 
-                    <GridViewColumn Header="Id" Width="100">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Source="{Binding Path=image}" Width="18" Height="18" Margin="0,0,5,0" />
-                                    <TextBlock FontSize="8"  Text="{Binding Path=symbol}" VerticalAlignment="Center"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+            <ListView.View>
+                <GridView>
+                    <GridView.Columns>
 
-                    <GridViewColumn Header="Coin" Width="100">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Source="{Binding Path=image}" Width="18" Height="18" Margin="0,0,5,0" />
-                                    <TextBlock FontSize="8"  Text="{Binding Path=symbol}" VerticalAlignment="Center"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+                        <GridViewColumn Header="Id" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="12" 
+                                               HorizontalAlignment="Center"
+                                               Text="{Binding Path=Id}" 
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
 
-                    <GridViewColumn Header="Name" Width="100" DisplayMemberBinding="{Binding Path=name}"></GridViewColumn>
+                        <GridViewColumn Header="{p:Loc Name}" Width="130">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="12" 
+                                               HorizontalAlignment="Center"  
+                                               Text="{Binding Path=Name}" 
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
 
-                    <GridViewColumn Header="Price" Width="100">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock FontSize="12"  
-                                                   Text="{Binding Path=current_price, StringFormat=' ${0}'}" 
-                                                   VerticalAlignment="Center"
-                                                   HorizontalAlignment="Center"
-                                                   Foreground="{Binding colorPrice}"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+                        <GridViewColumn Header="{p:Loc SecondName}" Width="150">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="12" 
+                                               HorizontalAlignment="Center" 
+                                               Text="{Binding Path=SecondName}" 
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
 
-                    <GridViewColumn Header="Percentage" Width="100">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock FontSize="12"  
-                                                   Text="{Binding Path=price_change_percentage_24h, StringFormat=' {0}%'}" 
-                                                   VerticalAlignment="Center"
-                                                   HorizontalAlignment="Center"
-                                                   Foreground="{Binding colorPercentage}"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+                        <GridViewColumn Header="{p:Loc Age}" Width="50">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="12" 
+                                               HorizontalAlignment="Center" 
+                                               Text="{Binding Path=Age}" 
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
 
-                    <GridViewColumn Header="Market cap"  
-                                        Width="150" 
-                                        DisplayMemberBinding="{Binding Path=market_cap, StringFormat=' ${0}'}">
-                    </GridViewColumn>
+                        <GridViewColumn Header="{p:Loc Email}" Width="150">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="12" 
+                                               HorizontalAlignment="Center"  
+                                               Text="{Binding Path=Email}" 
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
 
-                </GridView.Columns>
-            </GridView>
+                        <GridViewColumn Header="{p:Loc Phone}" Width="160">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="12" 
+                                               HorizontalAlignment="Center"  
+                                               Text="{Binding Path=PhoneNumber}" 
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
 
-        </ListView.View>
-    </ListView>-->
+                        <GridViewColumn Header="{p:Loc Role}" Width="120">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="12" 
+                                               HorizontalAlignment="Center"  
+                                               Text="{Binding Path=Role}" 
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="{p:Loc JobTitle}" Width="130">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="12" 
+                                               HorizontalAlignment="Center" 
+                                               Text="{Binding Path=JobTitle}" 
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="{p:Loc BankName}" Width="130">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="12" 
+                                               HorizontalAlignment="Center" 
+                                               Text="{Binding Path=BankAccount[0].Name}" 
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="{p:Loc BankAccount}" Width="130">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="12" 
+                                               HorizontalAlignment="Center" 
+                                               Text="{Binding Path=BankAccount[0].BankAccounts}" 
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                    </GridView.Columns>
+                </GridView>
+
+            </ListView.View>
+        </ListView>
+
+        <Button HorizontalAlignment="Right" 
+            VerticalAlignment="Bottom"
+            Padding="10,5,10,5"
+            Margin="0,0,35,35"
+            Background="{DynamicResource hc_btnAdd}"
+            Foreground="{DynamicResource hc_btnAddText}"
+            FontWeight="Medium"
+            BorderThickness="0"
+            Command="{Binding AddBtnInList}"
+            CommandParameter="employee"
+            Content="{p:Loc AddEmployee}"/>
+
+    </Grid>
 
 </UserControl>

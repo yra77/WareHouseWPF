@@ -82,8 +82,8 @@
                       Margin="0,20,0,0"
                         IsDropDownOpen="False" 
                         SelectedDateFormat="Short"
+                        Language="{Binding DatePickerLanguage, UpdateSourceTrigger=PropertyChanged}"
                         Text="{Binding DateToday}"/>
-                <!--Text="{Binding DateToday, TargetNullValue={x:Static system:DateTime.Now}}"/>-->
 
                 <Button Content="{Binding Logout}"
                     HorizontalAlignment="Right"
@@ -154,8 +154,9 @@
                 HorizontalContentAlignment="Center"
                 VerticalAlignment="Center"
                 Visibility="{Binding IsLoaded, UpdateSourceTrigger=PropertyChanged}"/>
+            
             <!--<control:EmployeesView Visibility="Visible"/>-->
-            <ContentControl prism:RegionManager.RegionName="ListViewRegion" />
+            <ContentControl Grid.Column="0" prism:RegionManager.RegionName="ListViewRegion" />
 
             <TextBlock 
             Margin="5,5,5,5"

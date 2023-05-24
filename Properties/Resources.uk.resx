@@ -117,8 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddClient" xml:space="preserve">
+    <value>Додати клієнта</value>
+  </data>
+  <data name="AddEmployee" xml:space="preserve">
+    <value>Додати працівника</value>
+  </data>
+  <data name="AddingHumanText" xml:space="preserve">
+    <value>Заповніть усі поля</value>
+  </data>
   <data name="AddProduct" xml:space="preserve">
     <value>Додати товар</value>
+  </data>
+  <data name="Age" xml:space="preserve">
+    <value>Вік</value>
+  </data>
+  <data name="Agree" xml:space="preserve">
+    <value>Згоден</value>
   </data>
   <data name="Alert_Email2" xml:space="preserve">
     <value>Цього email немає</value>
@@ -132,17 +147,38 @@
   <data name="Alert_Password2" xml:space="preserve">
     <value>Пароль не валідний</value>
   </data>
+  <data name="Apartment" xml:space="preserve">
+    <value>Квартира</value>
+  </data>
   <data name="Auth" xml:space="preserve">
     <value>Аутентифікація</value>
   </data>
   <data name="AuthText" xml:space="preserve">
     <value>Будь ласка авторизуйтеся</value>
   </data>
+  <data name="Back" xml:space="preserve">
+    <value>Назад</value>
+  </data>
+  <data name="BankAccount" xml:space="preserve">
+    <value>Банківський рахунок</value>
+  </data>
+  <data name="BankName" xml:space="preserve">
+    <value>Назва банку</value>
+  </data>
   <data name="ChooseLang" xml:space="preserve">
     <value>Виберіть мову</value>
   </data>
+  <data name="City" xml:space="preserve">
+    <value>Місто</value>
+  </data>
   <data name="Clients" xml:space="preserve">
     <value>Клієнти</value>
+  </data>
+  <data name="DateOfBirth" xml:space="preserve">
+    <value>Дата народження</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Електронна пошта</value>
   </data>
   <data name="Employees" xml:space="preserve">
     <value>Працівники</value>
@@ -159,16 +195,55 @@
   <data name="HomeText" xml:space="preserve">
     <value>Система управління складським обліком</value>
   </data>
+  <data name="House" xml:space="preserve">
+    <value>Номер дому</value>
+  </data>
+  <data name="JobTitle" xml:space="preserve">
+    <value>Посада</value>
+  </data>
+  <data name="MsgCamFile" xml:space="preserve">
+    <value>Увімкнути камеру?</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Ім'я</value>
+  </data>
+  <data name="Notifications" xml:space="preserve">
+    <value>Сповіщення</value>
+  </data>
   <data name="NotServer" xml:space="preserve">
     <value>Сервер недоступний</value>
   </data>
+  <data name="Organization" xml:space="preserve">
+    <value>Назва організаціі</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>Номер телефону 10 ціфр</value>
+  </data>
+  <data name="Photo" xml:space="preserve">
+    <value>Фотографія</value>
+  </data>
   <data name="Products" xml:space="preserve">
     <value>Товари</value>
+  </data>
+  <data name="Region" xml:space="preserve">
+    <value>Область</value>
+  </data>
+  <data name="Role" xml:space="preserve">
+    <value>Роль у доступі</value>
+  </data>
+  <data name="SecondName" xml:space="preserve">
+    <value>Фамілія</value>
   </data>
   <data name="Settings" xml:space="preserve">
     <value>Налаштування</value>
   </data>
   <data name="Shippers" xml:space="preserve">
     <value>Постачальники</value>
+  </data>
+  <data name="Street" xml:space="preserve">
+    <value>Вулиця</value>
   </data>
 </root>

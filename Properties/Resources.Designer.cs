@@ -61,11 +61,56 @@ namespace WareHouseWPF.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Add client.
+        /// </summary>
+        internal static string AddClient {
+            get {
+                return ResourceManager.GetString("AddClient", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Add employee.
+        /// </summary>
+        internal static string AddEmployee {
+            get {
+                return ResourceManager.GetString("AddEmployee", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Fill in all fields.
+        /// </summary>
+        internal static string AddingHumanText {
+            get {
+                return ResourceManager.GetString("AddingHumanText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Add Product.
         /// </summary>
         internal static string AddProduct {
             get {
                 return ResourceManager.GetString("AddProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Age.
+        /// </summary>
+        internal static string Age {
+            get {
+                return ResourceManager.GetString("Age", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Agree.
+        /// </summary>
+        internal static string Agree {
+            get {
+                return ResourceManager.GetString("Agree", resourceCulture);
             }
         }
         
@@ -106,6 +151,15 @@ namespace WareHouseWPF.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Apartment.
+        /// </summary>
+        internal static string Apartment {
+            get {
+                return ResourceManager.GetString("Apartment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Authentication.
         /// </summary>
         internal static string Auth {
@@ -124,6 +178,33 @@ namespace WareHouseWPF.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Back.
+        /// </summary>
+        internal static string Back {
+            get {
+                return ResourceManager.GetString("Back", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Bank account.
+        /// </summary>
+        internal static string BankAccount {
+            get {
+                return ResourceManager.GetString("BankAccount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Bank name.
+        /// </summary>
+        internal static string BankName {
+            get {
+                return ResourceManager.GetString("BankName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Choose Language.
         /// </summary>
         internal static string ChooseLang {
@@ -133,11 +214,38 @@ namespace WareHouseWPF.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на City.
+        /// </summary>
+        internal static string City {
+            get {
+                return ResourceManager.GetString("City", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Clients.
         /// </summary>
         internal static string Clients {
             get {
                 return ResourceManager.GetString("Clients", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Date of birth.
+        /// </summary>
+        internal static string DateOfBirth {
+            get {
+                return ResourceManager.GetString("DateOfBirth", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Email.
+        /// </summary>
+        internal static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
             }
         }
         
@@ -187,6 +295,51 @@ namespace WareHouseWPF.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на House.
+        /// </summary>
+        internal static string House {
+            get {
+                return ResourceManager.GetString("House", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Job Title.
+        /// </summary>
+        internal static string JobTitle {
+            get {
+                return ResourceManager.GetString("JobTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Turn on camera?.
+        /// </summary>
+        internal static string MsgCamFile {
+            get {
+                return ResourceManager.GetString("MsgCamFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Name.
+        /// </summary>
+        internal static string Name {
+            get {
+                return ResourceManager.GetString("Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Notifications.
+        /// </summary>
+        internal static string Notifications {
+            get {
+                return ResourceManager.GetString("Notifications", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Server is not available.
         /// </summary>
         internal static string NotServer {
@@ -196,11 +349,74 @@ namespace WareHouseWPF.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Organization.
+        /// </summary>
+        internal static string Organization {
+            get {
+                return ResourceManager.GetString("Organization", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Password.
+        /// </summary>
+        internal static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Phone number 10 digit.
+        /// </summary>
+        internal static string Phone {
+            get {
+                return ResourceManager.GetString("Phone", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Photo.
+        /// </summary>
+        internal static string Photo {
+            get {
+                return ResourceManager.GetString("Photo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Products.
         /// </summary>
         internal static string Products {
             get {
                 return ResourceManager.GetString("Products", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Region.
+        /// </summary>
+        internal static string Region {
+            get {
+                return ResourceManager.GetString("Region", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Role in access.
+        /// </summary>
+        internal static string Role {
+            get {
+                return ResourceManager.GetString("Role", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Second name.
+        /// </summary>
+        internal static string SecondName {
+            get {
+                return ResourceManager.GetString("SecondName", resourceCulture);
             }
         }
         
@@ -219,6 +435,15 @@ namespace WareHouseWPF.Properties {
         internal static string Shippers {
             get {
                 return ResourceManager.GetString("Shippers", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Street.
+        /// </summary>
+        internal static string Street {
+            get {
+                return ResourceManager.GetString("Street", resourceCulture);
             }
         }
     }

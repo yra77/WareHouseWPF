@@ -46,6 +46,15 @@
             <SolidColorBrush x:Key="s_text">#36A3C0</SolidColorBrush>
             <SolidColorBrush x:Key="s_btnback">#36A3C0</SolidColorBrush>
             <SolidColorBrush x:Key="s_btntext">White</SolidColorBrush>
+            
+            <!--Adding human-->
+            <SolidColorBrush x:Key="ah_background">White</SolidColorBrush>
+            <SolidColorBrush x:Key="ah_textHigh">#36A3C0</SolidColorBrush>
+            <SolidColorBrush x:Key="ah_btnback">#36A3C0</SolidColorBrush>
+            <SolidColorBrush x:Key="ah_btnbacktext">White</SolidColorBrush>
+            <SolidColorBrush x:Key="ah_btn">#36A3C0</SolidColorBrush>
+            <SolidColorBrush x:Key="ah_btntext">White</SolidColorBrush>
+            <SolidColorBrush x:Key="ah_span">Gray</SolidColorBrush>
 
         </ResourceDictionary>
 

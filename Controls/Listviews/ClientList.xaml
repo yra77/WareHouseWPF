@@ -4,16 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WareHouseWPF.Controls.Listviews"
-             xmlns:behavior="clr-namespace:WareHouseWPF.Behaviors.ListViewBehavior"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="true"
              xmlns:p="clr-namespace:WareHouseWPF.Services.Localisation"
              mc:Ignorable="d" >
 
     <Grid Grid.Column="0">
-    <ListView VirtualizingStackPanel.IsVirtualizing="False"
-              behavior:ListViewBehaviors.IsAutoUpdatingColumnWidths="true"
-              HorizontalContentAlignment="Stretch"
+        
+    <ListView HorizontalContentAlignment="Stretch"
               ItemsSource="{Binding List}"
               SelectedItem="{Binding SelectedItem}" 
               SelectedIndex="-1"
@@ -80,7 +78,7 @@
         </ListView.View>
     </ListView>
 
-    <Button HorizontalAlignment="Right" 
+        <Button HorizontalAlignment="Right" 
             VerticalAlignment="Bottom"
             Padding="10,5,10,5"
             Margin="0,0,35,35"
@@ -89,10 +87,9 @@
             FontWeight="Medium"
             BorderThickness="0"
             Command="{Binding AddBtnInList}"
-            CommandParameter="client">
-        Add Client
-    </Button>
-    
+            CommandParameter="client"
+            Content="{p:Loc AddClient}"/>
+
     </Grid>
   
 </UserControl>
