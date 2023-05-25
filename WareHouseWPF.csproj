@@ -112,6 +112,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controls\Entrys\MyTextBox.cs" />
+    <Compile Include="Converters\PathToByteArray.cs" />
+    <Compile Include="Converters\StrToIntConvert.cs" />
     <Compile Include="Properties\Resources.en1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

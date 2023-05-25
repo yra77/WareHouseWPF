@@ -147,25 +147,14 @@
                 <ColumnDefinition Width="3*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Table -->
+            <!-- Table -->            
+            <ContentControl Grid.Column="0" prism:RegionManager.RegionName="ListViewRegion" />
 
             <control:SpinnerControl 
                 Grid.Column="0"
                 HorizontalContentAlignment="Center"
                 VerticalAlignment="Center"
                 Visibility="{Binding IsLoaded, UpdateSourceTrigger=PropertyChanged}"/>
-            
-            <!--<control:EmployeesView Visibility="Visible"/>-->
-            <ContentControl Grid.Column="0" prism:RegionManager.RegionName="ListViewRegion" />
-
-            <TextBlock 
-            Margin="5,5,5,5"
-            FontSize="14"
-            FontFamily="Verdana"
-            VerticalAlignment="Center"  
-            HorizontalAlignment="Center"  
-            Text="{p:Loc EmptyListText}"  
-            Visibility="{Binding EmptyListTextVisible}"/>
 
                 <!-- End Table -->
             

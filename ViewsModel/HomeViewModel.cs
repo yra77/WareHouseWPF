@@ -12,7 +12,6 @@ using Prism.Commands;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Diagnostics;
 using System.Windows.Markup;
 using System.ComponentModel;
@@ -23,6 +22,7 @@ namespace WareHouseWPF.ViewsModel
     internal class HomeViewModel : BaseViewModel, INavigationAware
     {
 
+        private bool _isComeIn;
 
         public HomeViewModel(IRegionManager regionManager,
                              IVerifyService verifyService,
@@ -35,11 +35,16 @@ namespace WareHouseWPF.ViewsModel
             _dataService = dataService;
             _translation = translation;
 
+            _isComeIn = false;
             IsLoaded = "Hidden";//Visible
             Logout = _employeeAuth.Role + " Logout";
             DateToday = DateTime.Now.ToShortDateString();
-            EmptyListTextVisible = "Collapsed";
             DatePickerLanguage = XmlLanguage.GetLanguage(WareHouseWPF.Properties.Settings.Default.Language.IetfLanguageTag);
+
+            _regionManager.RegisterViewWithRegion("ListViewRegion", typeof(EmployeeList));
+            _regionManager.RegisterViewWithRegion("ListViewRegion", typeof(ClientList));
+            _regionManager.RegisterViewWithRegion("ListViewRegion", typeof(ShipperList));
+            _regionManager.RegisterViewWithRegion("ListViewRegion", typeof(ProductList));
         }
 
 
@@ -53,19 +58,19 @@ namespace WareHouseWPF.ViewsModel
         }
 
 
-        private List<object> _list;
-        public List<object> List
+        private List<Employee> _listEmployee;
+        public List<Employee> ListEmployee
         {
-            get => _list;
-            set => SetProperty(ref _list, value);
+            get => _listEmployee;
+            set => SetProperty(ref _listEmployee, value);
         }
 
 
-        private string _emptyListTextVisible;
-        public string EmptyListTextVisible
+        private List<ClientModel> _listClient;
+        public List<ClientModel> ListClient
         {
-            get => _emptyListTextVisible;
-            set => SetProperty(ref _emptyListTextVisible, value);
+            get => _listClient;
+            set => SetProperty(ref _listClient, value);
         }
 
 
@@ -101,8 +106,8 @@ namespace WareHouseWPF.ViewsModel
         }
 
 
-        public DelegateCommand ClientsBtn => new DelegateCommand(ClientsPrintAsync);
-        public DelegateCommand EmployeesBtn => new DelegateCommand(EmployeesPrintAsync);
+        public DelegateCommand ClientsBtn => new DelegateCommand(ClientsPrint);
+        public DelegateCommand EmployeesBtn => new DelegateCommand(EmployeesPrint);
         public DelegateCommand ShippersBtn => new DelegateCommand(ShippersPrint);
         public DelegateCommand ProductsBtn => new DelegateCommand(ProductsPrint);
         public DelegateCommand AddProductBtn => new DelegateCommand(AddProduct);
@@ -127,37 +132,30 @@ namespace WareHouseWPF.ViewsModel
             _regionManager.RequestNavigate("MainRegion", "Settings");
         }
 
-        private async void ClientsPrintAsync()
+        private async void ClientsPrint()
         {
-            _regionManager.RequestNavigate("ListViewRegion", "ClientList");
-
             IsLoaded = "Visible";
 
-            List = new List<object>(await _dataService.GetDataAsync<ClientModel>());
+            ListClient = new List<ClientModel>(await _dataService.GetDataAsync<ClientModel>());
+         
+            _regionManager.RequestNavigate("ListViewRegion", "ClientList");
 
-            if (List == null || List.Count == 0)
-            {
-                EmptyListTextVisible = "Visible";
-            }
-
-            RaisePropertyChanged("List");
+           // RaisePropertyChanged("List");
             IsLoaded = "Hidden";//Visible
         }
 
-        private async void EmployeesPrintAsync()
+        private async void EmployeesPrint()
         {
-            _regionManager.RequestNavigate("ListViewRegion", "EmployeeList");
+            if (_isComeIn)
+            {
+                _regionManager.RequestNavigate("ListViewRegion", "EmployeeList");
+            }
 
             IsLoaded = "Visible";
 
-            List = new List<object>(await _dataService.GetDataAsync<Employee>());
+            ListEmployee = new List<Employee>(await _dataService.GetDataAsync<Employee>());
 
-            if (List == null || List.Count == 0)
-            {
-                EmptyListTextVisible = "Visible";
-            }
-
-            RaisePropertyChanged("List");
+           // RaisePropertyChanged("List");
             IsLoaded = "Hidden";//Visible
         }
 
@@ -223,11 +221,9 @@ namespace WareHouseWPF.ViewsModel
                                 };
 
                 _regionManager.RequestNavigate("MainRegion", "AddingHumans", parameters);
+                SelectedItem = null;
             }
-
-            SelectedItem = null;
         }
-
 
         public bool IsNavigationTarget(NavigationContext navigationContext)
         {
@@ -236,20 +232,18 @@ namespace WareHouseWPF.ViewsModel
 
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {
-
+            _isComeIn = false;
         }
 
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
-            _regionManager.RegisterViewWithRegion("ListViewRegion", typeof(EmployeeList));
-            _regionManager.RegisterViewWithRegion("ListViewRegion", typeof(ClientList));
-            _regionManager.RegisterViewWithRegion("ListViewRegion", typeof(ShipperList));
-            _regionManager.RegisterViewWithRegion("ListViewRegion", typeof(ProductList));
-
-            DatePickerLanguage = XmlLanguage.GetLanguage(WareHouseWPF.Properties.Settings.Default.Language.IetfLanguageTag);
-            //_region = _regionManager.Regions["ListViewRegion"];
-            //foreach(var a in _region.Views)
-            //Debug.WriteLine("AAAAAAAAAAAAAAa " + a);
+            
+            if (!_isComeIn)
+            {
+                EmployeesPrint();
+                DatePickerLanguage = XmlLanguage.GetLanguage(WareHouseWPF.Properties.Settings.Default.Language.IetfLanguageTag);
+            }
+            _isComeIn = true;
         }
 
         #endregion

@@ -12,6 +12,6 @@ namespace WareHouseWPF.Models
         public byte[] Photo { get; set; } = new byte[0];
         public string JobTitle { get; set; }
         public string Role { get; set; }
-        public List<BankDetails> BankAccount { get; set; }
+        public List<BankDetails> BankAccount { get; set; } = new List<BankDetails>(3);
     }
 }

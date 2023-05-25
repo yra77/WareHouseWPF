@@ -12,7 +12,7 @@
     <Grid Grid.Column="0">
 
         <ListView HorizontalContentAlignment="Center"
-              ItemsSource="{Binding List}"
+              ItemsSource="{Binding ListEmployee}"
               SelectedItem="{Binding SelectedItem}" 
               SelectedIndex="-1"
               SelectionMode="Single"

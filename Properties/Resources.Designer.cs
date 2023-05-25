@@ -241,6 +241,15 @@ namespace WareHouseWPF.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Delete.
+        /// </summary>
+        internal static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Email.
         /// </summary>
         internal static string Email {
@@ -264,6 +273,24 @@ namespace WareHouseWPF.Properties {
         internal static string EmptyListText {
             get {
                 return ResourceManager.GetString("EmptyListText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на An error occurred. Try again..
+        /// </summary>
+        internal static string ErrorDeletData {
+            get {
+                return ResourceManager.GetString("ErrorDeletData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на An error has occurred. Check your input and try again.
+        /// </summary>
+        internal static string ErrorSaveData {
+            get {
+                return ResourceManager.GetString("ErrorSaveData", resourceCulture);
             }
         }
         

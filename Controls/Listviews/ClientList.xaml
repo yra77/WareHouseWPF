@@ -10,9 +10,9 @@
              mc:Ignorable="d" >
 
     <Grid Grid.Column="0">
-        
-    <ListView HorizontalContentAlignment="Stretch"
-              ItemsSource="{Binding List}"
+
+        <ListView HorizontalContentAlignment="Stretch"
+              ItemsSource="{Binding ListClient}"
               SelectedItem="{Binding SelectedItem}" 
               SelectedIndex="-1"
               SelectionMode="Single"

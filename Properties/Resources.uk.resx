@@ -177,6 +177,9 @@
   <data name="DateOfBirth" xml:space="preserve">
     <value>Дата народження</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Видалити</value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>Електронна пошта</value>
   </data>
@@ -185,6 +188,12 @@
   </data>
   <data name="EmptyListText" xml:space="preserve">
     <value>Список порожній</value>
+  </data>
+  <data name="ErrorDeletData" xml:space="preserve">
+    <value>Сталася помилка. Спробуйте ще.</value>
+  </data>
+  <data name="ErrorSaveData" xml:space="preserve">
+    <value>Сталася помилка. Перевірте введені дані та повторіть спробу</value>
   </data>
   <data name="ErrorText_Email" xml:space="preserve">
     <value>Має бути - aaa@aa.aa</value>

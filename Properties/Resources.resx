@@ -177,6 +177,9 @@
   <data name="DateOfBirth" xml:space="preserve">
     <value>Date of birth</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
   </data>
@@ -185,6 +188,12 @@
   </data>
   <data name="EmptyListText" xml:space="preserve">
     <value>The list is empty</value>
+  </data>
+  <data name="ErrorDeletData" xml:space="preserve">
+    <value>An error occurred. Try again.</value>
+  </data>
+  <data name="ErrorSaveData" xml:space="preserve">
+    <value>An error has occurred. Check your input and try again</value>
   </data>
   <data name="ErrorText_Email" xml:space="preserve">
     <value>Email. Must have - aaa@aa.aa</value>

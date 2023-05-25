@@ -13,6 +13,7 @@
              mc:Ignorable="d"
              Background="{DynamicResource ah_background}">
 
+
     <Grid Margin="20,0,0,20">
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
@@ -58,22 +59,24 @@
                                FontFamily="Verdana"
                                 Margin="0,15,0,0"/>
                     <controls:MyTextBox Height="25" 
-                                        SelectedType="text"
+                                        SelectedType="textUA"
+                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                              VerticalContentAlignment="Center"
                              FontFamily="Verdana"
                              FontSize="14" 
-                             Text="{Binding Path=General.Name}"/>
+                             Text="{Binding Path=General.Name, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="{p:Loc SecondName}"
                                Foreground="{DynamicResource ah_span}"
                                FontFamily="Verdana"
                                 Margin="0,15,0,0"/>
                     <controls:MyTextBox Height="25"
-                                        SelectedType="text"
+                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                        SelectedType="textUA"
                              VerticalContentAlignment="Center"
                              FontFamily="Verdana"
                              FontSize="14"
-                             Text="{Binding Path=General.SecondName}"/>
+                             Text="{Binding Path=General.SecondName, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="{p:Loc DateOfBirth}"
                                Foreground="{DynamicResource ah_span}"
@@ -82,156 +85,144 @@
                     <DatePicker Language="{Binding DatePickerLanguage, UpdateSourceTrigger=PropertyChanged}"
                                 IsDropDownOpen="False"
                                 SelectedDateFormat="Short"
-                                SelectedDate="{Binding Path=General.DateOfBirth}"/>
+                                SelectedDate="{Binding Path=General.DateOfBirth, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="{p:Loc Email}"
                                Foreground="{DynamicResource ah_span}"
                                FontFamily="Verdana"
                                 Margin="0,15,0,0"/>
                     <controls:MyTextBox Height="25"
+                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                         SelectedType="email"
                              VerticalContentAlignment="Center"
                              FontFamily="Verdana"
                              FontSize="14"
-                             Text="{Binding Path=General.Email}"/>
+                             Text="{Binding Path=General.Email, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="{p:Loc Phone}"
                                Foreground="{DynamicResource ah_span}"
                                FontFamily="Verdana"
                                 Margin="0,15,0,0"/>
                     <controls:MyTextBox Height="25"
+                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                         SelectedType="digit"
                                         MaxLength="10"
                              VerticalContentAlignment="Center"
                              FontFamily="Verdana"
                              FontSize="14"
-                             Text="{Binding Path=General.PhoneNumber}"/>
+                             Text="{Binding Path=General.PhoneNumber, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="{p:Loc City}"
                                Foreground="{DynamicResource ah_span}"
                                FontFamily="Verdana"
                                 Margin="0,15,0,0"/>
                     <controls:MyTextBox Height="25"
-                                        SelectedType="text"
+                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                        SelectedType="textUA"
                              VerticalContentAlignment="Center"
                              FontFamily="Verdana"
                              FontSize="14"
-                             Text="{Binding Path=General.City}"/>
+                             Text="{Binding Path=General.City, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="{p:Loc Region}"
                                Foreground="{DynamicResource ah_span}"
                                FontFamily="Verdana"
                                 Margin="0,15,0,0"/>
                     <controls:MyTextBox Height="25"
-                                        SelectedType="text"
+                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                        SelectedType="textUA"
                              VerticalContentAlignment="Center"
                              FontFamily="Verdana"
                              FontSize="14"
-                             Text="{Binding Path=General.Region}"/>
+                             Text="{Binding Path=General.Region, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="{p:Loc Street}"
                                Foreground="{DynamicResource ah_span}"
                                FontFamily="Verdana"
                                 Margin="0,15,0,0"/>
                     <controls:MyTextBox Height="25"
-                                        SelectedType="text"
+                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                        SelectedType="textUA"
                              VerticalContentAlignment="Center"
                              FontFamily="Verdana"
                              FontSize="14"
-                             Text="{Binding Path=General.Street}"/>
+                             Text="{Binding Path=General.Street, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="{p:Loc House}"
                                Foreground="{DynamicResource ah_span}"
                                FontFamily="Verdana"
                                 Margin="0,15,0,0"/>
                     <controls:MyTextBox Height="25"
+                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                         SelectedType="digit"
                                         MaxLength="5"
                              VerticalContentAlignment="Center"
                              FontFamily="Verdana"
                              FontSize="14"
-                             Text="{Binding Path=General.House}"/>
+                             Text="{Binding Path=General.House, UpdateSourceTrigger=PropertyChanged}"/>
 
                     <TextBlock Text="{p:Loc Apartment}"
                                Foreground="{DynamicResource ah_span}"
                                FontFamily="Verdana"
                                     Margin="0,15,0,0"/>
                     <controls:MyTextBox Height="25"
+                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                         SelectedType="digit"
                                         MaxLength="5"
                              VerticalContentAlignment="Center"
                              FontFamily="Verdana"
                              FontSize="14"
-                             Text="{Binding Path=General.Apartment}"/>
+                             Text="{Binding Path=General.Apartment, UpdateSourceTrigger=PropertyChanged}"/>
 
 
-                    <!--for client-->
-
-                    <StackPanel Margin="0,15,0,0"
-                                Visibility="{Binding IsClientVisible}">
-
-                        <TextBlock Text="{p:Loc Organization}"
-                               FontFamily="Verdana"
-                               Foreground="{DynamicResource ah_span}"/>
-                        <controls:MyTextBox Height="25"
-                                        SelectedType="text"
-                             VerticalContentAlignment="Center"
-                             FontFamily="Verdana"
-                             FontSize="14"
-                             Text="{Binding Path=ClientMod.Organization}"/>
-
-                        <TextBlock Text="{p:Loc BankName}"
+                    <TextBlock Text="{p:Loc BankName}"
                                Foreground="{DynamicResource ah_span}"
                                FontFamily="Verdana"
                                    Margin="0,15,0,0"/>
-                        <controls:MyTextBox Height="25"
-                                        SelectedType="text"
+                    <controls:MyTextBox Height="25"
+                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                        SelectedType="textEN"
                              VerticalContentAlignment="Center"
                              FontFamily="Verdana"
                              FontSize="14"
-                             Text="{Binding Path=ClientMod.BanksAccount[0].Name}"/>
+                             Text="{Binding Path=Bank_Details.Name, UpdateSourceTrigger=PropertyChanged}"/>
 
-                        <TextBlock Text="{p:Loc BankAccount}"
+                    <TextBlock Text="{p:Loc BankAccount}" 
                                Foreground="{DynamicResource ah_span}"
                                FontFamily="Verdana"
                                    Margin="0,15,0,0"/>
-                        <controls:MyTextBox Height="25"
+                    <controls:MyTextBox Height="25"
+                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                  SelectedType="digit"
                              MaxLength="16"
                              VerticalContentAlignment="Center"
                              FontFamily="Verdana"
                              FontSize="14"
-                             Text="{Binding Path=ClientMod.BanksAccount[0].BankAccount}"/>
+                             Text="{Binding Path=Bank_Details.BankAccounts, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <!--for client-->
+
+                    <StackPanel Margin="0,15,0,0"
+                                Visibility="{Binding IsClientVisible, UpdateSourceTrigger=PropertyChanged}">
+
+                        <TextBlock Text="{p:Loc Organization}"
+                               FontFamily="Verdana"
+                               Foreground="{DynamicResource ah_span}"/>
+                        <controls:MyTextBox Height="25"
+                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                        SelectedType="textUA"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14"
+                             Text="{Binding Path=ClientMod.Organization, UpdateSourceTrigger=PropertyChanged}"/>
 
                     </StackPanel>
 
                     <!--for employee-->
 
-                    <StackPanel Visibility="{Binding IsEmployeeVisible}"
-                            Margin="0,15,0,0"
+                    <StackPanel Visibility="{Binding IsEmployeeVisible, UpdateSourceTrigger=PropertyChanged}"
+                            Margin="0,0,0,0"
                             VerticalAlignment="Center">
-
-                        <TextBlock Text="{p:Loc BankName}"
-                               Foreground="{DynamicResource ah_span}"
-                               FontFamily="Verdana"/>
-                        <controls:MyTextBox Height="25"
-                                        SelectedType="text"
-                             VerticalContentAlignment="Center"
-                             FontFamily="Verdana"
-                             FontSize="14"
-                             Text="{Binding Path=EmployeeMod.BankAccount[0].Name}"/>
-
-                        <TextBlock Text="{p:Loc BankAccount}"
-                               Foreground="{DynamicResource ah_span}"
-                               Margin="0,15,0,0"
-                               FontFamily="Verdana"/>
-                        <controls:MyTextBox Height="25"
-                                            SelectedType="digit"
-                             MaxLength="16"
-                             VerticalContentAlignment="Center"
-                             FontFamily="Verdana"
-                             FontSize="14"
-                             Text="{Binding Path=EmployeeMod.BankAccount[0].BankAccounts}"/>
 
                         <TextBlock Text="{p:Loc Password}"
                                Margin="0,15,0,0"
@@ -239,10 +230,11 @@
                                Foreground="{DynamicResource ah_span}"/>
                         <controls:MyTextBox Height="25"
                                  SelectedType="password"
+                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                              VerticalContentAlignment="Center"
                              FontFamily="Verdana"
                              FontSize="14"
-                             Text="{Binding Path=EmployeeMod.Password}"/>
+                             Text="{Binding Path=EmployeeMod.Password, UpdateSourceTrigger=PropertyChanged}"/>
 
                         <TextBlock Text="{p:Loc Age}"
                                Margin="0,15,0,0"
@@ -250,46 +242,48 @@
                                FontFamily="Verdana"/>
                         <controls:MyTextBox Height="25"
                                         SelectedType="digit"
+                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                              MaxLength="16"
                              VerticalContentAlignment="Center"
                              FontFamily="Verdana"
                              FontSize="14"
-                             Text="{Binding Path=EmployeeMod.Age}"/>
+                             Text="{Binding Path=EmployeeMod.Age, UpdateSourceTrigger=PropertyChanged}"/>
 
                         <TextBlock Text="{p:Loc JobTitle}"
                                Foreground="{DynamicResource ah_span}"
                                FontFamily="Verdana"
                                Margin="0,15,0,0"/>
                         <controls:MyTextBox Height="25"
-                                        SelectedType="text"
+                                        SelectedType="textEN"
+                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                              MaxLength="16"
                              VerticalContentAlignment="Center"
                              FontFamily="Verdana"
                              FontSize="14"
-                             Text="{Binding Path=EmployeeMod.JobTitle}"/>
+                             Text="{Binding Path=EmployeeMod.JobTitle, UpdateSourceTrigger=PropertyChanged}"/>
 
                         <TextBlock Text="{p:Loc Role}"
                                Foreground="{DynamicResource ah_span}"
                                FontFamily="Verdana"
                                Margin="0,15,0,0"/>
                         <controls:MyTextBox Height="25"
-                                        SelectedType="text"
+                                        SelectedType="textEN"
+                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                              MaxLength="16"
                              VerticalContentAlignment="Center"
                              FontFamily="Verdana"
                              FontSize="14"
-                             Text="{Binding Path=EmployeeMod.Role}"/>
+                             Text="{Binding Path=EmployeeMod.Role, UpdateSourceTrigger=PropertyChanged}"/>
 
                         <TextBlock Text="{p:Loc Photo}"
                                Foreground="{DynamicResource ah_span}"
                                FontFamily="Verdana"
                                Margin="0,15,0,0"/>
-
                         <Button Command="{Binding EditPhoto}"
                                 HorizontalAlignment="Left"
                                 Width="100"
                                 Height="100">
-                            <Image Source="{Binding PathPhoto, UpdateSourceTrigger=PropertyChanged}"/>
+                            <Image Source="{Binding PathPhoto, TargetNullValue={x:Null}, UpdateSourceTrigger=PropertyChanged}"/>
                         </Button>
                     </StackPanel>
 
@@ -309,6 +303,18 @@
                     Background="{DynamicResource ah_btnback}"
                     Foreground="{DynamicResource ah_btnbacktext}"
                         Command="{Binding BackBtn}"/>
+
+                <Button Content="{p:Loc Delete}"
+                        Visibility="{Binding IsDeleteVisible}"
+                    FontFamily="Verdana"
+                    Foreground="{DynamicResource ah_btntext}"
+                    Background="{DynamicResource ah_btn}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="0,20,0,0"
+                    MinWidth="150"
+                    Padding="7"
+                    Command="{Binding DeleteBtn}"/>
 
                 <Button Content="{p:Loc Agree}"
                     FontFamily="Verdana"

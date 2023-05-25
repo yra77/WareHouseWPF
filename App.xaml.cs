@@ -32,7 +32,6 @@ namespace WareHouseWPF
             regionManager.RegisterViewWithRegion("MainRegion", typeof(AddingHumans));
             regionManager.RegisterViewWithRegion("MainRegion", typeof(Views.Settings));
             //   regionManager.RegisterViewWithRegion("CoinInfoRegion", typeof(Settings));
-
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
