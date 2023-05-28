@@ -1,13 +1,16 @@
 ﻿
 
+using WareHouseWPF.Events;
 using WareHouseWPF.Models;
 using WareHouseWPF.Converters;
 using WareHouseWPF.Services.DataService;
 using WareHouseWPF.Services.Localisation;
 using WareHouseWPF.Services.VerifyService;
 
+using Prism.Events;
 using Prism.Regions;
 using Prism.Commands;
+
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Windows.Markup;
@@ -24,12 +27,14 @@ namespace WareHouseWPF.ViewsModel
         private string _modelName;
 
 
-        public AddingHumansViewModel(IRegionManager regionManager,
-                             ITranslationSource translation,
-                             IVerifyService verifyService,
-                             IDataService dataService)
+        public AddingHumansViewModel(IEventAggregator eventAggregator,
+                                     IRegionManager regionManager,
+                                     ITranslationSource translation,
+                                     IVerifyService verifyService,
+                                     IDataService dataService)
             : base()
         {
+            _eventAggregator = eventAggregator;
             _regionManager = regionManager;
             _verifyService = verifyService;
             _dataService = dataService;
@@ -70,10 +75,10 @@ namespace WareHouseWPF.ViewsModel
 
 
         private bool _isValidInput;
-        public bool IsValidInput 
-        { 
-            get => _isValidInput; 
-            set => SetProperty(ref _isValidInput, value); 
+        public bool IsValidInput
+        {
+            get => _isValidInput;
+            set => SetProperty(ref _isValidInput, value);
         }
 
 
@@ -161,6 +166,7 @@ namespace WareHouseWPF.ViewsModel
 
                 if (result)
                 {
+                    _eventAggregator.GetEvent<MyEvent>().Publish();
                     GoBack();
                 }
                 else
@@ -216,7 +222,7 @@ namespace WareHouseWPF.ViewsModel
                     EmployeeMod.DateOfRegistration = General.DateOfRegistration;
 
                     EmployeeMod.Photo = PathPhoto;
-                    EmployeeMod.BankAccount = new List<BankDetails>(){Bank_Details};
+                    EmployeeMod.BankAccount = new List<BankDetails>() { Bank_Details };
 
                     result = await _dataService.InsertUpdateAsync(EmployeeMod.Id, EmployeeMod);
                 }
@@ -225,6 +231,7 @@ namespace WareHouseWPF.ViewsModel
 
                 if (result)
                 {
+                    _eventAggregator.GetEvent<MyEvent>().Publish();
                     GoBack();
                 }
                 else
@@ -267,6 +274,7 @@ namespace WareHouseWPF.ViewsModel
 
         private void Convert_Item(object item)
         {
+
             IsDeleteVisible = "Visible";
 
             if (_modelName == "employee")
@@ -284,9 +292,8 @@ namespace WareHouseWPF.ViewsModel
                 {
                     PathPhoto = EmployeeMod.Photo;
                 }
-                //  Debug.WriteLine("AAAAAAAAAAAAAAAAA " + a.Name);
             }
-            else if (_modelName == "Client")
+            else if (_modelName == "client")
             {
                 var a = item as ClientModel;
                 General = a;
@@ -296,8 +303,6 @@ namespace WareHouseWPF.ViewsModel
                 {
                     Bank_Details = a.BanksAccount[0];
                 }
-
-                // Debug.WriteLine("ZZZZZZZZZZZ " + a.Name);
             }
         }
 

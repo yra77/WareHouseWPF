@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:WareHouseWPF.Controls.Listviews"
              xmlns:prism="http://prismlibrary.com/"
              prism:ViewModelLocator.AutoWireViewModel="true"
              xmlns:p="clr-namespace:WareHouseWPF.Services.Localisation"
@@ -12,62 +11,124 @@
     <Grid Grid.Column="0">
 
         <ListView HorizontalContentAlignment="Stretch"
-              ItemsSource="{Binding ListClient}"
+              ItemsSource="{Binding ListClient, UpdateSourceTrigger=PropertyChanged}"
               SelectedItem="{Binding SelectedItem}" 
               SelectedIndex="-1"
               SelectionMode="Single"
               Margin="10,10,10,10"
               Grid.Row="1">
+            <ListView.Resources>
+                <Style TargetType="ListView">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=Items.Count}" Value="0">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
 
+                                        <TextBlock 
+                                           FontSize="14"
+            FontFamily="Verdana"
+            VerticalAlignment="Center"  
+            HorizontalAlignment="Center"  
+            Text="{p:Loc EmptyListText}" 
+                                            />
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ListView.Resources>
         <ListView.View>
             <GridView>
                 <GridView.Columns>
 
-                    <GridViewColumn Header="Id" Width="Auto">
+                    <GridViewColumn Header="Id" Width="50">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock FontSize="10" HorizontalAlignment="Stretch" Text="{Binding Path=Id}" VerticalAlignment="Center"/>
+                                <TextBlock FontSize="12" 
+                                           HorizontalAlignment="Center" 
+                                           Text="{Binding Path=Id, UpdateSourceTrigger=PropertyChanged}" 
+                                           VerticalAlignment="Center"
+                                           />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn Header="Name" Width="Auto">
+                        <GridViewColumn Header="{p:Loc Name}" Width="130">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="12" 
+                                               HorizontalAlignment="Center"  
+                                               Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" 
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="{p:Loc SecondName}" Width="150">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock FontSize="10" HorizontalAlignment="Stretch"  Text="{Binding Path=Name}" VerticalAlignment="Center"/>
+                                <TextBlock FontSize="12" 
+                                           HorizontalAlignment="Center"
+                                           Text="{Binding Path=SecondName, UpdateSourceTrigger=PropertyChanged}"
+                                           VerticalAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-
-                    <GridViewColumn Header="SecondName" Width="Auto">
+                    <GridViewColumn Header="{p:Loc Organization}" Width="150">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock FontSize="10" HorizontalAlignment="Stretch"  Text="{Binding Path=SecondName}" VerticalAlignment="Center"/>
+                                <TextBlock FontSize="12"
+                                           HorizontalAlignment="Center"
+                                           Text="{Binding Path=Organization, UpdateSourceTrigger=PropertyChanged}" 
+                                           VerticalAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn Header="Organization" Width="Auto">
+                        <GridViewColumn Header="{p:Loc City}" Width="150">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="12" 
+                                           HorizontalAlignment="Center"
+                                           Text="{Binding Path=City, UpdateSourceTrigger=PropertyChanged}" 
+                                           VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="{p:Loc Email}" Width="150">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock FontSize="10" HorizontalAlignment="Stretch"  Text="{Binding Path=Organization}" VerticalAlignment="Center"/>
+                                <TextBlock FontSize="12" 
+                                           HorizontalAlignment="Center"
+                                           Text="{Binding Path=Email, UpdateSourceTrigger=PropertyChanged}" 
+                                           VerticalAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn Header="Email" Width="Auto">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock FontSize="10" HorizontalAlignment="Stretch"  Text="{Binding Path=Email}" VerticalAlignment="Center"/>
-                            </DataTemplate>
-                        </GridViewColumn.CellTemplate>
-                    </GridViewColumn>
+                        <GridViewColumn Header="{p:Loc BankName}" Width="130">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="12" 
+                                               HorizontalAlignment="Center" 
+                                               Text="{Binding Path=BanksAccount[0].Name, UpdateSourceTrigger=PropertyChanged}" 
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
 
-                    <GridViewColumn Header="Phone Number" Width="Auto">
+                        <GridViewColumn Header="{p:Loc Phone}" Width="160">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock FontSize="10" HorizontalAlignment="Stretch"  Text="{Binding Path=PhoneNumber}" VerticalAlignment="Center"/>
+                                <TextBlock FontSize="12" 
+                                           HorizontalAlignment="Center"
+                                           Text="{Binding Path=PhoneNumber, UpdateSourceTrigger=PropertyChanged}" 
+                                           VerticalAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

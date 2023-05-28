@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AddCategory" xml:space="preserve">
+    <value>Add category</value>
+  </data>
   <data name="AddClient" xml:space="preserve">
     <value>Add client</value>
   </data>
@@ -128,6 +131,12 @@
   </data>
   <data name="AddProduct" xml:space="preserve">
     <value>Add Product</value>
+  </data>
+  <data name="AddShipper" xml:space="preserve">
+    <value>Add shipper</value>
+  </data>
+  <data name="AddType" xml:space="preserve">
+    <value>Add type</value>
   </data>
   <data name="Age" xml:space="preserve">
     <value>Age</value>
@@ -165,6 +174,9 @@
   <data name="BankName" xml:space="preserve">
     <value>Bank name</value>
   </data>
+  <data name="Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
   <data name="ChooseLang" xml:space="preserve">
     <value>Choose Language</value>
   </data>
@@ -173,6 +185,12 @@
   </data>
   <data name="Clients" xml:space="preserve">
     <value>Clients</value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>Product code</value>
+  </data>
+  <data name="DateArrival" xml:space="preserve">
+    <value>Date arrival</value>
   </data>
   <data name="DateOfBirth" xml:space="preserve">
     <value>Date of birth</value>
@@ -228,14 +246,23 @@
   <data name="Password" xml:space="preserve">
     <value>Password</value>
   </data>
+  <data name="PermissionMsg" xml:space="preserve">
+    <value>You are not an admin. Your functions are limited</value>
+  </data>
   <data name="Phone" xml:space="preserve">
     <value>Phone number 10 digit</value>
   </data>
   <data name="Photo" xml:space="preserve">
     <value>Photo</value>
   </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
   <data name="Products" xml:space="preserve">
     <value>Products</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Quantity</value>
   </data>
   <data name="Region" xml:space="preserve">
     <value>Region</value>
@@ -249,10 +276,19 @@
   <data name="Settings" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="Shipper" xml:space="preserve">
+    <value>Shipper</value>
+  </data>
   <data name="Shippers" xml:space="preserve">
     <value>Shippers</value>
   </data>
   <data name="Street" xml:space="preserve">
     <value>Street</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>Product type</value>
+  </data>
+  <data name="WarehouseNumber" xml:space="preserve">
+    <value>Warehouse number</value>
   </data>
 </root>

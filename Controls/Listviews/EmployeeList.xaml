@@ -12,12 +12,36 @@
     <Grid Grid.Column="0">
 
         <ListView HorizontalContentAlignment="Center"
-              ItemsSource="{Binding ListEmployee}"
+              ItemsSource="{Binding ListEmployee, UpdateSourceTrigger=PropertyChanged}"
               SelectedItem="{Binding SelectedItem}" 
               SelectedIndex="-1"
               SelectionMode="Single"
               Margin="10,10,10,10"
               Grid.Row="1">
+
+            <ListView.Resources>
+                <Style TargetType="ListView">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=Items.Count}" Value="0">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+
+                                        <TextBlock 
+                                           FontSize="14"
+            FontFamily="Verdana"
+            VerticalAlignment="Center"  
+            HorizontalAlignment="Center"  
+            Text="{p:Loc EmptyListText}" 
+                                            />
+
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </ListView.Resources>
 
             <ListView.View>
                 <GridView>
@@ -28,7 +52,7 @@
                                 <DataTemplate>
                                     <TextBlock FontSize="12" 
                                                HorizontalAlignment="Center"
-                                               Text="{Binding Path=Id}" 
+                                               Text="{Binding Path=Id, UpdateSourceTrigger=PropertyChanged}" 
                                                VerticalAlignment="Center"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -39,7 +63,7 @@
                                 <DataTemplate>
                                     <TextBlock FontSize="12" 
                                                HorizontalAlignment="Center"  
-                                               Text="{Binding Path=Name}" 
+                                               Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" 
                                                VerticalAlignment="Center"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -50,7 +74,7 @@
                                 <DataTemplate>
                                     <TextBlock FontSize="12" 
                                                HorizontalAlignment="Center" 
-                                               Text="{Binding Path=SecondName}" 
+                                               Text="{Binding Path=SecondName, UpdateSourceTrigger=PropertyChanged}" 
                                                VerticalAlignment="Center"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -61,7 +85,7 @@
                                 <DataTemplate>
                                     <TextBlock FontSize="12" 
                                                HorizontalAlignment="Center" 
-                                               Text="{Binding Path=Age}" 
+                                               Text="{Binding Path=Age, UpdateSourceTrigger=PropertyChanged}" 
                                                VerticalAlignment="Center"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -72,7 +96,7 @@
                                 <DataTemplate>
                                     <TextBlock FontSize="12" 
                                                HorizontalAlignment="Center"  
-                                               Text="{Binding Path=Email}" 
+                                               Text="{Binding Path=Email, UpdateSourceTrigger=PropertyChanged}" 
                                                VerticalAlignment="Center"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -83,7 +107,7 @@
                                 <DataTemplate>
                                     <TextBlock FontSize="12" 
                                                HorizontalAlignment="Center"  
-                                               Text="{Binding Path=PhoneNumber}" 
+                                               Text="{Binding Path=PhoneNumber, UpdateSourceTrigger=PropertyChanged}" 
                                                VerticalAlignment="Center"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -94,7 +118,7 @@
                                 <DataTemplate>
                                     <TextBlock FontSize="12" 
                                                HorizontalAlignment="Center"  
-                                               Text="{Binding Path=Role}" 
+                                               Text="{Binding Path=Role, UpdateSourceTrigger=PropertyChanged}" 
                                                VerticalAlignment="Center"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -105,7 +129,7 @@
                                 <DataTemplate>
                                     <TextBlock FontSize="12" 
                                                HorizontalAlignment="Center" 
-                                               Text="{Binding Path=JobTitle}" 
+                                               Text="{Binding Path=JobTitle, UpdateSourceTrigger=PropertyChanged}" 
                                                VerticalAlignment="Center"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -116,7 +140,7 @@
                                 <DataTemplate>
                                     <TextBlock FontSize="12" 
                                                HorizontalAlignment="Center" 
-                                               Text="{Binding Path=BankAccount[0].Name}" 
+                                               Text="{Binding Path=BankAccount[0].Name, UpdateSourceTrigger=PropertyChanged}" 
                                                VerticalAlignment="Center"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -127,7 +151,7 @@
                                 <DataTemplate>
                                     <TextBlock FontSize="12" 
                                                HorizontalAlignment="Center" 
-                                               Text="{Binding Path=BankAccount[0].BankAccounts}" 
+                                               Text="{Binding Path=BankAccount[0].BankAccounts, UpdateSourceTrigger=PropertyChanged}" 
                                                VerticalAlignment="Center"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
@@ -138,6 +162,17 @@
 
             </ListView.View>
         </ListView>
+
+  
+
+        <!--<TextBlock 
+                                           FontSize="14"
+            FontFamily="Verdana"
+            VerticalAlignment="Center"  
+            HorizontalAlignment="Center"  
+            Text="{p:Loc EmptyListText}" 
+                                            />-->
+
 
         <Button HorizontalAlignment="Right" 
             VerticalAlignment="Bottom"

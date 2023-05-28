@@ -1,6 +1,7 @@
 ﻿
 
 using WareHouseWPF.Services.Auth;
+using WareHouseWPF.Services.AccessRoles;
 using WareHouseWPF.Services.Localisation;
 using WareHouseWPF.Services.VerifyService;
 
@@ -18,14 +19,16 @@ namespace WareHouseWPF.ViewsModel
 
         public AuthViewModel(IRegionManager regionManager,
                                    IVerifyService verifyService,
+                                   IAccessRole accessRole,
                                    IAuth auth,
                                    ITranslationSource translation)
             : base()
         {
             _regionManager = regionManager;
             _verifyService = verifyService;
-            _auth = auth;
             _translation = translation;
+            _accessRole = accessRole;
+            _auth = auth;
            
             IsEnabled = false;
             IsLoaded = "Hidden";//Visible
@@ -142,6 +145,7 @@ namespace WareHouseWPF.ViewsModel
             if (result.Item1)
             {
                 _employeeAuth = result.Item2.Item2;
+                _accessRole.SetRole(_employeeAuth.Role);
                 _regionManager.RequestNavigate("MainRegion", "Home");
             }
             else

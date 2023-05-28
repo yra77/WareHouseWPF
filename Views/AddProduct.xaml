@@ -1,0 +1,209 @@
+﻿<UserControl x:Class="WareHouseWPF.Views.AddProduct"
+              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WareHouseWPF.Views"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="true"
+             xmlns:control = "clr-namespace:WareHouseWPF.Controls.Spinner"
+             xmlns:controls = "clr-namespace:WareHouseWPF.Controls.Entrys"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:p="clr-namespace:WareHouseWPF.Services.Localisation"
+             mc:Ignorable="d"
+             Background="{DynamicResource ap_background}">
+
+
+    <Grid Margin="20,0,0,20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="9*"/>
+        </Grid.RowDefinitions>
+
+
+        <Grid Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="9*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.Column="0"
+                   Margin="0,20,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   Source="../Images/icon_product.png"/>
+
+            <TextBlock Grid.Column="1"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       FontSize="16"
+                       FontFamily="Verdana"
+                       Foreground="{DynamicResource ap_textHigh}"
+                       Text="{p:Loc AddingHumanText}"/>
+        </Grid>
+
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="9*"/>
+            </Grid.ColumnDefinitions>
+
+            <ScrollViewer Grid.Column="1" Padding="10"
+                     HorizontalAlignment="Stretch">
+
+                <StackPanel >
+
+                    <TextBlock Text="{p:Loc Name}"
+                               Foreground="{DynamicResource ap_span}"
+                               FontFamily="Verdana"
+                                Margin="0,15,0,0"/>
+                    <controls:MyTextBox Height="25" 
+                                        SelectedType="textUA"
+                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14" 
+                             Text="{Binding Path=ProductModel.Name, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBlock Text="{p:Loc Type}"
+                               Foreground="{DynamicResource ap_span}"
+                               FontFamily="Verdana"
+                                Margin="0,15,0,0"/>
+                    <controls:MyTextBox Height="25"
+                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                        SelectedType="digit"
+                                        MaxLength="10"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14"
+                             Text="{Binding Path=ProductModel.TypeId, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBlock Text="{p:Loc Category}"
+                               Foreground="{DynamicResource ap_span}"
+                               FontFamily="Verdana"
+                                Margin="0,15,0,0"/>
+                    <controls:MyTextBox Height="25"
+                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                        SelectedType="digit"
+                                        MaxLength="10"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14"
+                             Text="{Binding Path=ProductModel.CategoryId, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBlock Text="{p:Loc Quantity}"
+                               Foreground="{DynamicResource ap_span}"
+                               FontFamily="Verdana"
+                                Margin="0,15,0,0"/>
+                    <controls:MyTextBox Height="25"
+                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                        SelectedType="digit"
+                                        MaxLength="4"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14"
+                             Text="{Binding Path=ProductModel.Quantity, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBlock Text="{p:Loc Price}"
+                               Foreground="{DynamicResource ap_span}"
+                               FontFamily="Verdana"
+                                Margin="0,15,0,0"/>
+                    <controls:MyTextBox Height="25"
+                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                        SelectedType="digit"
+                                        MaxLength="8"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14"
+                             Text="{Binding Path=ProductModel.Price, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBlock Text="{p:Loc Shipper}"
+                               Foreground="{DynamicResource ap_span}"
+                               FontFamily="Verdana"
+                                Margin="0,15,0,0"/>
+                    <controls:MyTextBox Height="25"
+                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                        SelectedType="digit"
+                                        MaxLength="5"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14"
+                             Text="{Binding Path=ProductModel.ShipperId, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBlock Text="{p:Loc Code}"
+                               Foreground="{DynamicResource ap_span}"
+                               FontFamily="Verdana"
+                                Margin="0,15,0,0"/>
+                    <controls:MyTextBox Height="25"
+                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                        SelectedType="digit"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14"
+                             Text="{Binding Path=ProductModel.Code, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <TextBlock Text="{p:Loc WarehouseNumber}"
+                               Foreground="{DynamicResource ap_span}"
+                               FontFamily="Verdana"
+                                Margin="0,15,0,0"/>
+                    <controls:MyTextBox Height="25"
+                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                        SelectedType="digit"
+                                        MaxLength="8"
+                             VerticalContentAlignment="Center"
+                             FontFamily="Verdana"
+                             FontSize="14"
+                             Text="{Binding Path=ProductModel.WarehouseNumber, UpdateSourceTrigger=PropertyChanged}"/>
+
+                </StackPanel>
+
+            </ScrollViewer>
+
+
+            <Grid Grid.Column="0"
+                  Margin="0,0,0,20">
+
+                <Button Content="{p:Loc Back}"
+                    Padding="5"
+                    VerticalAlignment="Bottom"
+                    HorizontalAlignment="Left"
+                    FontFamily="Verdana"
+                    Background="{DynamicResource ap_btnback}"
+                    Foreground="{DynamicResource ap_btnbacktext}"
+                        Command="{Binding BackBtn}"/>
+
+                <Button Content="{p:Loc Delete}"
+                        Visibility="{Binding IsDeleteVisible}"
+                    FontFamily="Verdana"
+                    Foreground="{DynamicResource ap_btntext}"
+                    Background="{DynamicResource ap_btn}"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Left"
+                    Margin="0,20,0,0"
+                    MinWidth="150"
+                    Padding="7"
+                    Command="{Binding DeleteBtn}"/>
+
+                <Button Content="{p:Loc Agree}"
+                    FontFamily="Verdana"
+                    Foreground="{DynamicResource ap_btntext}"
+                    Background="{DynamicResource ap_btn}"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Left"
+                    Margin="0,20,0,0"
+                    MinWidth="150"
+                    Padding="7"
+                    Command="{Binding AgreeBtn}"/>
+            </Grid>
+
+            <control:SpinnerControl Grid.Column="0" 
+                                    HorizontalAlignment="Center" 
+                                    VerticalAlignment="Center" 
+                                    Visibility="{Binding IsLoaded, UpdateSourceTrigger=PropertyChanged}"/>
+
+        </Grid>
+
+    </Grid>
+
+</UserControl>

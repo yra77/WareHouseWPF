@@ -61,6 +61,15 @@ namespace WareHouseWPF.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Add category.
+        /// </summary>
+        internal static string AddCategory {
+            get {
+                return ResourceManager.GetString("AddCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Add client.
         /// </summary>
         internal static string AddClient {
@@ -93,6 +102,24 @@ namespace WareHouseWPF.Properties {
         internal static string AddProduct {
             get {
                 return ResourceManager.GetString("AddProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Add shipper.
+        /// </summary>
+        internal static string AddShipper {
+            get {
+                return ResourceManager.GetString("AddShipper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Add type.
+        /// </summary>
+        internal static string AddType {
+            get {
+                return ResourceManager.GetString("AddType", resourceCulture);
             }
         }
         
@@ -205,6 +232,15 @@ namespace WareHouseWPF.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Category.
+        /// </summary>
+        internal static string Category {
+            get {
+                return ResourceManager.GetString("Category", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Choose Language.
         /// </summary>
         internal static string ChooseLang {
@@ -228,6 +264,24 @@ namespace WareHouseWPF.Properties {
         internal static string Clients {
             get {
                 return ResourceManager.GetString("Clients", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Product code.
+        /// </summary>
+        internal static string Code {
+            get {
+                return ResourceManager.GetString("Code", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Date arrival.
+        /// </summary>
+        internal static string DateArrival {
+            get {
+                return ResourceManager.GetString("DateArrival", resourceCulture);
             }
         }
         
@@ -394,6 +448,15 @@ namespace WareHouseWPF.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на You are not an admin. Your functions are limited.
+        /// </summary>
+        internal static string PermissionMsg {
+            get {
+                return ResourceManager.GetString("PermissionMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Phone number 10 digit.
         /// </summary>
         internal static string Phone {
@@ -412,11 +475,29 @@ namespace WareHouseWPF.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Price.
+        /// </summary>
+        internal static string Price {
+            get {
+                return ResourceManager.GetString("Price", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Products.
         /// </summary>
         internal static string Products {
             get {
                 return ResourceManager.GetString("Products", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Quantity.
+        /// </summary>
+        internal static string Quantity {
+            get {
+                return ResourceManager.GetString("Quantity", resourceCulture);
             }
         }
         
@@ -457,6 +538,15 @@ namespace WareHouseWPF.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Shipper.
+        /// </summary>
+        internal static string Shipper {
+            get {
+                return ResourceManager.GetString("Shipper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Shippers.
         /// </summary>
         internal static string Shippers {
@@ -471,6 +561,24 @@ namespace WareHouseWPF.Properties {
         internal static string Street {
             get {
                 return ResourceManager.GetString("Street", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Product type.
+        /// </summary>
+        internal static string Type {
+            get {
+                return ResourceManager.GetString("Type", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Warehouse number.
+        /// </summary>
+        internal static string WarehouseNumber {
+            get {
+                return ResourceManager.GetString("WarehouseNumber", resourceCulture);
             }
         }
     }

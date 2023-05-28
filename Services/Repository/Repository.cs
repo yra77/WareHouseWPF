@@ -198,17 +198,29 @@ namespace WareHouseWPF.Services.Repository
         {
             string path = null;
 
-            if (typeof(T) == typeof(Employee))
+            if (typeof(T) == typeof(Product))
             {
-                path = Constants.PathConstant.AUTH_URL;
+                path = Constants.PathConstant.PRODUCTS_URL;
             }
             else if (typeof(T) == typeof(ClientModel))
             {
-                path = Constants.PathConstant.CLIENTS_GET_URL;
+                path = Constants.PathConstant.CLIENTS_GET_URL; 
             }
             else if (typeof(T) == typeof(Employee))
             {
                 path = Constants.PathConstant.EMPLOYEES_GET_URL;
+            }
+            else if (typeof(T) == typeof(Categories))
+            {
+                path = Constants.PathConstant.CATEGORY_URL;
+            }
+            else if (typeof(T) == typeof(ProductType))
+            {
+                path = Constants.PathConstant.PRODUCT_TYPE_URL;
+            }
+            else if (typeof(T) == typeof(Shipper))
+            {
+                path = Constants.PathConstant.SHIPPER_URL;
             }
 
             return path;

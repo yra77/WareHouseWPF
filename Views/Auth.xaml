@@ -10,7 +10,7 @@
         prism:ViewModelLocator.AutoWireViewModel="true"
         xmlns:p="clr-namespace:WareHouseWPF.Services.Localisation"
         mc:Ignorable="d"
-             d:DesignHeight="500" d:DesignWidth="900"
+             d:DesignHeight="650" d:DesignWidth="1100"
              Background="{DynamicResource PageBackground}">
     <Grid>
         <Grid.RowDefinitions>

@@ -87,6 +87,14 @@ namespace WareHouseWPF.Controls.Entrys
                     res = PasswordCheckin();
                     IsValid = IsValidPassword(Text);
                     break;
+
+                case "mixed":
+                    res = Mixed();
+                    if (Text.Length > 0)
+                    {
+                        IsValid = IsValidMixed();
+                    }
+                    break;
             }
 
             return res;
@@ -268,7 +276,7 @@ namespace WareHouseWPF.Controls.Entrys
             return flag;
         }
 
-        public bool IsValidPassword(string str)
+        private bool IsValidPassword(string str)
         {
 
             Regex regex = new Regex(@"^([A-Z]{1}[A-Za-z0-9]{0,}[0-9]{1,})",
@@ -277,5 +285,37 @@ namespace WareHouseWPF.Controls.Entrys
             return regex.IsMatch(str);
         }
 
+        private bool Mixed()
+        {
+            bool flag = true;
+            string temp = Text;
+
+            for (int i = 0; i < temp.Length; i++)
+            {
+
+                if (char.IsDigit(temp[i]) || (temp[i] >= 'A' && temp[i] <= 'Z') || (temp[i] >= 'a' && temp[i] <= 'z') 
+                    || (temp[i] >= 'А' && temp[i] <= 'Щ')
+                    || (temp[i] >= 'Ю' && temp[i] <= 'Я') || (temp[i] >= 'а' && temp[i] <= 'п') || (temp[i] >= 'р' && temp[i] <= 'щ')
+                    || (temp[i] >= 'ю' && temp[i] <= 'я') || temp[i] == 'Ь' || temp[i] == 'ь' || temp[i] == 'Ї' || temp[i] == 'ї'
+                    || temp[i] == 'І' || temp[i] == 'і' || temp[i] == 'Є' || temp[i] == 'є' || temp[i] == '`' || temp[i] == ' ')
+                {
+                    continue;
+                }
+                else
+                {
+                    temp = temp.Remove(i, 1);
+                    flag = false;
+                }
+            }
+
+            Text = temp;
+
+            return flag;
+        }
+
+        private bool IsValidMixed()
+        {
+            return Regex.IsMatch(Text, @"^[0-9А-ЩЮ-Яа-пр-щю-яьЬЇїІіЄє`a-zA-Z ]+$");
+        }
     }
 }

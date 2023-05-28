@@ -6,11 +6,11 @@
       xmlns:local="clr-namespace:WareHouseWPF.Views"
       xmlns:prism="http://prismlibrary.com/"
       prism:ViewModelLocator.AutoWireViewModel="true"
-        xmlns:control = "clr-namespace:WareHouseWPF.Controls.Spinner"
-             xmlns:system="clr-namespace:System;assembly=mscorlib"
+      xmlns:control="clr-namespace:WareHouseWPF.Controls.Spinner"
+      xmlns:system="clr-namespace:System;assembly=mscorlib"
       xmlns:p="clr-namespace:WareHouseWPF.Services.Localisation"
       mc:Ignorable="d" 
-      d:DesignHeight="500" d:DesignWidth="900">
+      d:DesignHeight="650" d:DesignWidth="1000">
 
 
     <Grid>
@@ -155,8 +155,7 @@
                 HorizontalContentAlignment="Center"
                 VerticalAlignment="Center"
                 Visibility="{Binding IsLoaded, UpdateSourceTrigger=PropertyChanged}"/>
-
-                <!-- End Table -->
+            <!-- End Table -->
             
             <StackPanel Orientation="Vertical"
                         Grid.Column="1"
@@ -202,7 +201,7 @@
                         Margin="10"
                         Command="{Binding EmployeesBtn}"/>
 
-                <Button Content="{p:Loc AddProduct}"
+                <Button Content="{p:Loc Category}"
                         Background="{DynamicResource h_rightBtnBackground}"
                         Foreground="{DynamicResource h_rightBtnText}"
                         BorderThickness="0"
@@ -210,7 +209,17 @@
                         FontSize="14"
                         Height="30"
                         Margin="10"
-                        Command="{Binding AddProductBtn}"/>
+                        Command="{Binding CategoryBtn}"/>
+
+                <Button Content="{p:Loc Type}"
+                        Background="{DynamicResource h_rightBtnBackground}"
+                        Foreground="{DynamicResource h_rightBtnText}"
+                        BorderThickness="0"
+                        VerticalContentAlignment="Center"
+                        FontSize="14"
+                        Height="30"
+                        Margin="10"
+                        Command="{Binding ProductTypeBtn}"/>
 
                 <Button Content="{p:Loc Settings}"
                         Background="{DynamicResource h_rightBtnBackground}"

@@ -10,34 +10,19 @@
         prism:ViewModelLocator.AutoWireViewModel="true"
         xmlns:p="clr-namespace:WareHouseWPF.Services.Localisation"
         mc:Ignorable="d"
-        Title="Warehouse service" 
-        Height="500"
-        Width="900"
+        Title="Warehouse service"
+        Width="1100"
+        Height="650"
+        WindowState="Maximized"
+        WindowStyle="ThreeDBorderWindow"
+        ShowInTaskbar="True"
+        Topmost="False"
+        ResizeMode="CanResizeWithGrip"
         Background="{DynamicResource PageBackground}">
 
     <Window.Resources>
 
-        <Style TargetType="ListView" BasedOn="{StaticResource {x:Type ListBox}}">
-            <Style.Triggers>
-                <DataTrigger Binding="{Binding RelativeSource={x:Static RelativeSource.Self}, Path=Items.Count}" Value="0">
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate>
-
-                                <TextBlock 
-                                           FontSize="14"
-            FontFamily="Verdana"
-            VerticalAlignment="Center"  
-            HorizontalAlignment="Center"  
-            Text="{p:Loc EmptyListText}" 
-                                            />
-
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </DataTrigger>
-            </Style.Triggers>
-        </Style>
+       
 
     </Window.Resources>
 

@@ -112,8 +112,19 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controls\Entrys\MyTextBox.cs" />
+    <Compile Include="Controls\Listviews\CategoryList.xaml.cs">
+      <DependentUpon>CategoryList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\Listviews\ProductTypeList.xaml.cs">
+      <DependentUpon>ProductTypeList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Converters\PathToByteArray.cs" />
     <Compile Include="Converters\StrToIntConvert.cs" />
+    <Compile Include="Enums\AccessPermisions.cs" />
+    <Compile Include="Events\MyEvent.cs" />
+    <Compile Include="Models\Categories.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\ProductType.cs" />
     <Compile Include="Properties\Resources.en1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -129,12 +140,30 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Services\AccessRoles\AccessRole.cs" />
+    <Compile Include="Services\AccessRoles\IAccessRole.cs" />
     <Compile Include="Services\SettingsManager\ISettingsManager.cs" />
     <Compile Include="Services\SettingsManager\SettingsManager.cs" />
+    <Compile Include="ViewsModel\AddProductViewModel.cs" />
+    <Compile Include="ViewsModel\AddShipperViewModel.cs" />
+    <Compile Include="ViewsModel\AddTypeCategoryViewModel.cs" />
     <Compile Include="ViewsModel\SettingsViewModel.cs" />
+    <Compile Include="Views\AddProduct.xaml.cs">
+      <DependentUpon>AddProduct.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddShipper.xaml.cs">
+      <DependentUpon>AddShipper.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddTypeCategory.xaml.cs">
+      <DependentUpon>AddTypeCategory.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\Listviews\CategoryList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Listviews\ClientList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -147,6 +176,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Controls\Listviews\ProductTypeList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Listviews\ShipperList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -156,6 +189,18 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\AddingHumans.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddProduct.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddShipper.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddTypeCategory.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -194,7 +239,7 @@
     <Compile Include="Models\ClientModel.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\HumanBaseModel.cs" />
-    <Compile Include="Enums\Roles.cs" />
+    <Compile Include="Constants\RolesConstant.cs" />
     <Compile Include="Models\Shipper.cs" />
     <Compile Include="Services\Auth\Auth.cs" />
     <Compile Include="Services\Auth\IAuth.cs" />
@@ -290,6 +335,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\editphoto.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon_product.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon_category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon_shipper.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

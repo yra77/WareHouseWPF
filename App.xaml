@@ -59,6 +59,33 @@
             <SolidColorBrush x:Key="ah_btntext">White</SolidColorBrush>
             <SolidColorBrush x:Key="ah_span">Gray</SolidColorBrush>
 
+            <!--Add Product-->
+            <SolidColorBrush x:Key="ap_background">White</SolidColorBrush>
+            <SolidColorBrush x:Key="ap_textHigh">#36A3C0</SolidColorBrush>
+            <SolidColorBrush x:Key="ap_btnback">#36A3C0</SolidColorBrush>
+            <SolidColorBrush x:Key="ap_btnbacktext">White</SolidColorBrush>
+            <SolidColorBrush x:Key="ap_btn">#36A3C0</SolidColorBrush>
+            <SolidColorBrush x:Key="ap_btntext">White</SolidColorBrush>
+            <SolidColorBrush x:Key="ap_span">Gray</SolidColorBrush>
+
+            <!--Add Type and Category-->
+            <SolidColorBrush x:Key="atc_background">White</SolidColorBrush>
+            <SolidColorBrush x:Key="atc_textHigh">#36A3C0</SolidColorBrush>
+            <SolidColorBrush x:Key="atc_btnback">#36A3C0</SolidColorBrush>
+            <SolidColorBrush x:Key="atc_btnbacktext">White</SolidColorBrush>
+            <SolidColorBrush x:Key="atc_btn">#36A3C0</SolidColorBrush>
+            <SolidColorBrush x:Key="atc_btntext">White</SolidColorBrush>
+            <SolidColorBrush x:Key="atc_span">Gray</SolidColorBrush>
+
+            <!--Add Type and Category-->
+            <SolidColorBrush x:Key="as_background">White</SolidColorBrush>
+            <SolidColorBrush x:Key="as_textHigh">#36A3C0</SolidColorBrush>
+            <SolidColorBrush x:Key="as_btnback">#36A3C0</SolidColorBrush>
+            <SolidColorBrush x:Key="as_btnbacktext">White</SolidColorBrush>
+            <SolidColorBrush x:Key="as_btn">#36A3C0</SolidColorBrush>
+            <SolidColorBrush x:Key="as_btntext">White</SolidColorBrush>
+            <SolidColorBrush x:Key="as_span">Gray</SolidColorBrush>
+
         </ResourceDictionary>
 
     </Application.Resources>

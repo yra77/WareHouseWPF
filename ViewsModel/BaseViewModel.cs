@@ -3,12 +3,14 @@
 using WareHouseWPF.Models;
 using WareHouseWPF.Services.Auth;
 using WareHouseWPF.Services.DataService;
+using WareHouseWPF.Services.AccessRoles;
 using WareHouseWPF.Services.Localisation;
 using WareHouseWPF.Services.VerifyService;
 using WareHouseWPF.Services.SettingsManager;
 
 using Prism.Mvvm;
 using Prism.Regions;
+using Prism.Events;
 
 
 namespace WareHouseWPF.ViewsModel
@@ -23,11 +25,13 @@ namespace WareHouseWPF.ViewsModel
         protected static Employee _employeeAuth;
         protected static bool _stateNethwork;
 
+        protected IEventAggregator _eventAggregator;
         protected ISettingsManager _settingsManager;
         protected ITranslationSource _translation;
         protected IRegionManager _regionManager;
         protected IVerifyService _verifyService;
         protected IDataService _dataService;
+        protected IAccessRole _accessRole;
         protected IAuth _auth;
 
         protected ChangeNethwork _changeNethwork;
