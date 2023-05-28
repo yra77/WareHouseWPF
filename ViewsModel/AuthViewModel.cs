@@ -147,6 +147,14 @@ namespace WareHouseWPF.ViewsModel
                 _employeeAuth = result.Item2.Item2;
                 _accessRole.SetRole(_employeeAuth.Role);
                 _regionManager.RequestNavigate("MainRegion", "Home");
+                _isPressed = false;
+                IsSignInEnable();
+                Email = "";
+                Password = "";
+                ErrorPassText = "";
+                ErrorEmailText = "";
+                EmailBorderColor = "LightGray";
+                PassBorderColor = "LightGray";
             }
             else
             {
@@ -260,7 +268,6 @@ namespace WareHouseWPF.ViewsModel
         public void OnNavigatedFrom(NavigationContext navigationContext)
         {
             _isPressed = false;
-            IsSignInEnable();
         }
 
         public void OnNavigatedTo(NavigationContext navigationContext)

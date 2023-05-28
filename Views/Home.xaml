@@ -86,48 +86,14 @@
                         Text="{Binding DateToday}"/>
 
                 <Button Content="{Binding Logout}"
+                        Background="{DynamicResource h_BtnLogoutBackground}"
+                        Foreground="{DynamicResource h_BtnLogoutTextColor}"
                     HorizontalAlignment="Right"
                     Height="30"
-                    Margin="0,20,30,0">
-                    <Button.Resources>
-                        <Style TargetType="Button">
-                            <Style.Setters>
-                                <Setter Property="Template">
-                                    <Setter.Value>
-                                        <ControlTemplate TargetType="{x:Type Button}">
-                                            <Border x:Name="button" CornerRadius="5" 
-                                    BorderBrush="Transparent" 
-                                    BorderThickness="1" 
-                                    Background="{DynamicResource h_BtnLogoutBackground}">
-                                                <TextBlock  Text="{TemplateBinding Button.Content}" 
-                                            HorizontalAlignment="Center" 
-                                            Foreground="{DynamicResource h_BtnLogoutTextColor}"
-                                            VerticalAlignment="Center" 
-                                            Padding="10,0,10,0"/>
-                                            </Border>
-                                            <ControlTemplate.Triggers>
-                                                <Trigger Property="IsMouseOver" Value="True">
-                                                    <Setter TargetName="button" Property="BorderBrush" Value="transparent" />
-                                                    <Setter TargetName="button" Property="Background"  Value="Red"/>
-                                                    <Setter Property="Foreground" Value="White" />
-                                                </Trigger>
-                                                <Trigger Property="IsPressed" Value="True">
-                                                    <Setter TargetName="button"  Property="Background" Value="Green"/>
-                                                </Trigger>
-                                                <Trigger Property="IsFocused" Value="True">
-                                                    <Setter TargetName="button" Property="BorderBrush" Value="transparent" />
-                                                </Trigger>
-                                                <Trigger Property="IsEnabled" Value="False">
-                                                    <Setter TargetName="button" Property="Opacity" Value="0.7" />
-                                                    <Setter Property="Foreground" Value="Gray" />
-                                                </Trigger>
-                                            </ControlTemplate.Triggers>
-                                        </ControlTemplate>
-                                    </Setter.Value>
-                                </Setter>
-                            </Style.Setters>
-                        </Style>
-                    </Button.Resources>
+                    Margin="0,20,30,0"
+                        Padding="5"
+                        BorderThickness="0"
+                        Command="{Binding LogOutBtn}">
                 </Button>
 
             </Grid>

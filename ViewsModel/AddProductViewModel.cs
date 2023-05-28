@@ -11,6 +11,8 @@ using Prism.Regions;
 using Prism.Events;
 
 using System.Windows;
+using System.Collections.Generic;
+using System.ComponentModel;
 
 
 namespace WareHouseWPF.ViewsModel
@@ -49,6 +51,30 @@ namespace WareHouseWPF.ViewsModel
         }
 
 
+        private List<ProductType> _listType;
+        public List<ProductType> ListType
+        {
+            get => _listType;
+            set => SetProperty(ref _listType, value);
+        }
+
+
+        private List<Categories> _listCategory;
+        public List<Categories> ListCategory
+        {
+            get => _listCategory;
+            set => SetProperty(ref _listCategory, value);
+        }
+
+
+        private List<Shipper> _listShipper;
+        public List<Shipper> ListShipper
+        {
+            get => _listShipper;
+            set => SetProperty(ref _listShipper, value);
+        }
+
+
         private bool _isValidInput;
         public bool IsValidInput
         {
@@ -70,6 +96,30 @@ namespace WareHouseWPF.ViewsModel
         {
             get => _isDeleteVisible;
             set => SetProperty(ref _isDeleteVisible, value);
+        }
+
+
+        private ProductType _selectType;
+        public ProductType SelectType
+        {
+            get => _selectType;
+            set => SetProperty(ref _selectType, value);
+        }
+
+
+        private Categories _selectCategory;
+        public Categories SelectCategory
+        {
+            get => _selectCategory;
+            set => SetProperty(ref _selectCategory, value);
+        }
+
+
+        private Shipper _selectShipper;
+        public Shipper SelectShipper
+        {
+            get => _selectShipper;
+            set => SetProperty(ref _selectShipper, value);
         }
 
 
@@ -143,6 +193,29 @@ namespace WareHouseWPF.ViewsModel
 
         #region implement interfaces
 
+        protected override void OnPropertyChanged(PropertyChangedEventArgs args)
+        {
+            base.OnPropertyChanged(args);
+
+            switch (args.PropertyName)
+            {
+                case "SelectType":
+                    ProductModel.TypeId = SelectType.Id;
+                    RaisePropertyChanged("ProductModel");
+                    break;
+
+                case "SelectCategory":
+                    ProductModel.CategoryId = SelectCategory.Id;
+                    RaisePropertyChanged("ProductModel");
+                    break;
+
+                case "SelectShipper":
+                    ProductModel.ShipperId = SelectShipper.Id;
+                    RaisePropertyChanged("ProductModel");
+                    break;
+            }
+        }
+
         public bool IsNavigationTarget(NavigationContext navigationContext)
         {
             return true;
@@ -153,10 +226,13 @@ namespace WareHouseWPF.ViewsModel
             _isPressed = false;
         }
 
-        public void OnNavigatedTo(NavigationContext navigationContext)
+        public async void OnNavigatedTo(NavigationContext navigationContext)
         {
             IsDeleteVisible = "Collapsed";
             ProductModel = new Product();
+            ListType = await _dataService.GetDataAsync<ProductType>();
+            ListCategory = await _dataService.GetDataAsync<Categories>();
+            ListShipper = await _dataService.GetDataAsync<Shipper>();
 
             var item = navigationContext.Parameters["item"];
             if (item != null)
@@ -165,6 +241,9 @@ namespace WareHouseWPF.ViewsModel
                 if (item is Product prod)
                 {
                     ProductModel = prod;
+                    SelectType = ListType.Find(x => x.Id == prod.TypeId);
+                    SelectCategory = ListCategory.Find(x => x.Id == prod.CategoryId);
+                    SelectShipper = ListShipper.Find(x => x.Id == prod.ShipperId);
                 }
             }
         }

@@ -35,7 +35,6 @@ namespace WareHouseWPF
             regionManager.RegisterViewWithRegion("MainRegion", typeof(AddProduct));
             regionManager.RegisterViewWithRegion("MainRegion", typeof(AddTypeCategory));
             regionManager.RegisterViewWithRegion("MainRegion", typeof(AddShipper));
-
             //   regionManager.RegisterViewWithRegion("CoinInfoRegion", typeof(Settings));
         }
 

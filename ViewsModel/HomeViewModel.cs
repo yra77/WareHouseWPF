@@ -228,10 +228,18 @@ namespace WareHouseWPF.ViewsModel
         public DelegateCommand AddBtnShipper => new DelegateCommand(AddShipper);
         public DelegateCommand<object> AddBtnInList => new DelegateCommand<object>(AddEntity);
         public DelegateCommand SettingsBtn => new DelegateCommand(SettingsClick);
+        public DelegateCommand LogOutBtn => new DelegateCommand(LogOut_Click);
 
 
         #endregion
 
+
+        public void LogOut_Click()
+        {
+            _employeeAuth = null;
+            _accessRole.SetRole("");
+            _regionManager.RequestNavigate("MainRegion", "Auth");
+        }
 
         private void SettingsClick()
         {
@@ -285,15 +293,17 @@ namespace WareHouseWPF.ViewsModel
 
         private async void ProductsPrint()
         {
-            if (LowPermission && _isComeIn)
+            if (LowPermission)
             {
-                _regionManager.RequestNavigate("ListViewRegion", "ProductList");
-
+                if (_isComeIn)
+                {
+                    _regionManager.RequestNavigate("ListViewRegion", "ProductList");
+                }
                 IsLoaded = "Visible";
 
                 ListProduct = new List<Product>(await _dataService.GetDataAsync<Product>());
 
-                // RaisePropertyChanged("List");
+                RaisePropertyChanged("ListProduct");
                 IsLoaded = "Hidden";//Visible
             }
         }
@@ -323,7 +333,7 @@ namespace WareHouseWPF.ViewsModel
 
                 ListType = new List<ProductType>(await _dataService.GetDataAsync<ProductType>());
 
-                // RaisePropertyChanged("List");
+                RaisePropertyChanged("ListType");
                 IsLoaded = "Hidden";//Visible
             }
         }
@@ -332,20 +342,19 @@ namespace WareHouseWPF.ViewsModel
         {
             if (HighestPermission)
             {
+                if (obj.ToString() == "client")
+                {
+                    _eventAggregator.GetEvent<MyEvent>().Subscribe(ClientsPrint);
+                }
+                else
+                {
+                    _eventAggregator.GetEvent<MyEvent>().Subscribe(EmployeesPrint);
+                }
+
                 var parameters = new NavigationParameters
                 {
                       { "entity", obj }
                 };
-
-                if(obj.ToString() == "client")
-                {
-                    _eventAggregator.GetEvent<MyEvent>().Subscribe(ClientsPrint); Debug.WriteLine("CCCCCCCCCCCCCCCCCC");
-                }
-                else
-                {
-                    _eventAggregator.GetEvent<MyEvent>().Subscribe(EmployeesPrint); Debug.WriteLine("ZZZZZZZZZZZZZZZZZZZ");
-                }
-
                 _regionManager.RequestNavigate("MainRegion", "AddingHumans", parameters);
             }
         }
@@ -354,6 +363,7 @@ namespace WareHouseWPF.ViewsModel
         {
             if (MediumPermission)
             {
+                _eventAggregator.GetEvent<MyEvent>().Subscribe(ProductsPrint);
                 _regionManager.RequestNavigate("MainRegion", "AddProduct");
             }
         }
@@ -362,11 +372,11 @@ namespace WareHouseWPF.ViewsModel
         {
             if (MediumPermission)
             {
+                _eventAggregator.GetEvent<MyEvent>().Subscribe(CategoryPrint);
                 var parameters = new NavigationParameters
                                 {
                                   { "entity", "categories" }
                                 };
-
                 _regionManager.RequestNavigate("MainRegion", "AddTypeCategory", parameters);
             }
         }
@@ -375,11 +385,11 @@ namespace WareHouseWPF.ViewsModel
         {
             if (MediumPermission)
             {
+                _eventAggregator.GetEvent<MyEvent>().Subscribe(ProductTypePrint);
                 var parameters = new NavigationParameters
                                 {
                                   { "entity", "productType" }
                                 };
-
                 _regionManager.RequestNavigate("MainRegion", "AddTypeCategory", parameters);
             }
         }
@@ -388,11 +398,10 @@ namespace WareHouseWPF.ViewsModel
         {
             if (MediumPermission)
             {
-                _eventAggregator.GetEvent<MyEvent>().Subscribe(ShippersPrint);Debug.WriteLine("AAAAAAAAAAAAA");
+                _eventAggregator.GetEvent<MyEvent>().Subscribe(ShippersPrint);
                 _regionManager.RequestNavigate("MainRegion", "AddShipper");
             }
         }
-
 
 
         #region Interfaces
@@ -434,7 +443,6 @@ namespace WareHouseWPF.ViewsModel
                                   { "entity", model },
                                   { "item", SelectedItem}
                                 };
-
                         _regionManager.RequestNavigate("MainRegion", "AddingHumans", parameters);
                         SelectedItem = null;
                     }
@@ -447,7 +455,6 @@ namespace WareHouseWPF.ViewsModel
                                 {
                                   { "item", SelectedProduct}
                                 };
-
                         _regionManager.RequestNavigate("MainRegion", "AddProduct", parameters);
                         SelectedProduct = null;
                     }
@@ -461,7 +468,6 @@ namespace WareHouseWPF.ViewsModel
                                   { "entity", "categories" },
                                   { "item", SelectedCategory}
                                 };
-
                         _regionManager.RequestNavigate("MainRegion", "AddTypeCategory", parameters);
                         SelectedCategory = null;
                     }
@@ -475,7 +481,6 @@ namespace WareHouseWPF.ViewsModel
                                   { "entity", "productType" },
                                   { "item", SelectedType}
                                 };
-
                         _regionManager.RequestNavigate("MainRegion", "AddTypeCategory", parameters);
                         SelectedType = null;
                     }
@@ -488,7 +493,6 @@ namespace WareHouseWPF.ViewsModel
                                 {
                                   { "item", SelectedShipper}
                                 };
-
                         _regionManager.RequestNavigate("MainRegion", "AddShipper", parameters);
                         SelectedShipper = null;
                     }
@@ -514,12 +518,11 @@ namespace WareHouseWPF.ViewsModel
                                            out _mediumPermission,
                                            out _lowPermission,
                                            out _lowestPermission);
-
-            if (!_isComeIn)
-            {
+            
                 if (LowPermission)
                 {
                     ProductsPrint();
+                    _isComeIn = true;
                 }
                 else
                 {
@@ -527,8 +530,6 @@ namespace WareHouseWPF.ViewsModel
                 }
 
                 DatePickerLanguage = XmlLanguage.GetLanguage(WareHouseWPF.Properties.Settings.Default.Language.IetfLanguageTag);
-            }
-            _isComeIn = true;
         }
 
         #endregion
