@@ -61,6 +61,24 @@ namespace WareHouseWPF.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Accounting.
+        /// </summary>
+        internal static string Accounting {
+            get {
+                return ResourceManager.GetString("Accounting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Add.
+        /// </summary>
+        internal static string Add {
+            get {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Add category.
         /// </summary>
         internal static string AddCategory {
@@ -93,6 +111,15 @@ namespace WareHouseWPF.Properties {
         internal static string AddingHumanText {
             get {
                 return ResourceManager.GetString("AddingHumanText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Add invoice.
+        /// </summary>
+        internal static string AddInvoice {
+            get {
+                return ResourceManager.GetString("AddInvoice", resourceCulture);
             }
         }
         
@@ -187,6 +214,15 @@ namespace WareHouseWPF.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Arrival of goods.
+        /// </summary>
+        internal static string ArrivalOfGoods {
+            get {
+                return ResourceManager.GetString("ArrivalOfGoods", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Authentication.
         /// </summary>
         internal static string Auth {
@@ -277,6 +313,15 @@ namespace WareHouseWPF.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Code and quantity of goods.
+        /// </summary>
+        internal static string CodeQuantityGoods {
+            get {
+                return ResourceManager.GetString("CodeQuantityGoods", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Date arrival.
         /// </summary>
         internal static string DateArrival {
@@ -309,6 +354,15 @@ namespace WareHouseWPF.Properties {
         internal static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Employee.
+        /// </summary>
+        internal static string Employee {
+            get {
+                return ResourceManager.GetString("Employee", resourceCulture);
             }
         }
         
@@ -363,6 +417,15 @@ namespace WareHouseWPF.Properties {
         internal static string ErrorText_Password {
             get {
                 return ResourceManager.GetString("ErrorText_Password", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на High.
+        /// </summary>
+        internal static string High {
+            get {
+                return ResourceManager.GetString("High", resourceCulture);
             }
         }
         
@@ -561,6 +624,33 @@ namespace WareHouseWPF.Properties {
         internal static string Street {
             get {
                 return ResourceManager.GetString("Street", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Tables.
+        /// </summary>
+        internal static string Tables {
+            get {
+                return ResourceManager.GetString("Tables", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Transfer goods.
+        /// </summary>
+        internal static string TransferGoods {
+            get {
+                return ResourceManager.GetString("TransferGoods", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Transfer of goods.
+        /// </summary>
+        internal static string TransferOfGoods {
+            get {
+                return ResourceManager.GetString("TransferOfGoods", resourceCulture);
             }
         }
         

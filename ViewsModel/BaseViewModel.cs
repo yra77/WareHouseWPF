@@ -2,6 +2,7 @@
 
 using WareHouseWPF.Models;
 using WareHouseWPF.Services.Auth;
+using WareHouseWPF.Services.Sort;
 using WareHouseWPF.Services.DataService;
 using WareHouseWPF.Services.AccessRoles;
 using WareHouseWPF.Services.Localisation;
@@ -31,6 +32,7 @@ namespace WareHouseWPF.ViewsModel
         protected IRegionManager _regionManager;
         protected IVerifyService _verifyService;
         protected IDataService _dataService;
+        protected ISortService _sortService;
         protected IAccessRole _accessRole;
         protected IAuth _auth;
 

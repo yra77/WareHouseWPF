@@ -222,6 +222,14 @@ namespace WareHouseWPF.Services.Repository
             {
                 path = Constants.PathConstant.SHIPPER_URL;
             }
+            else if (typeof(T) == typeof(ArrivalOfGoods))
+            {
+                path = Constants.PathConstant.ARRIVAL_URL;
+            }
+            else if (typeof(T) == typeof(TransferOfGoods))
+            {
+                path = Constants.PathConstant.TRANSFER_URL;
+            }
 
             return path;
         }

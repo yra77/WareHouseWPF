@@ -200,18 +200,27 @@ namespace WareHouseWPF.ViewsModel
             switch (args.PropertyName)
             {
                 case "SelectType":
-                    ProductModel.TypeId = SelectType.Id;
-                    RaisePropertyChanged("ProductModel");
+                    if (SelectType != null)
+                    {
+                        ProductModel.TypeId = SelectType.Id;
+                        RaisePropertyChanged("ProductModel");
+                    }
                     break;
 
                 case "SelectCategory":
-                    ProductModel.CategoryId = SelectCategory.Id;
-                    RaisePropertyChanged("ProductModel");
+                    if (SelectCategory != null)
+                    {
+                        ProductModel.CategoryId = SelectCategory.Id;
+                        RaisePropertyChanged("ProductModel");
+                    }
                     break;
 
                 case "SelectShipper":
-                    ProductModel.ShipperId = SelectShipper.Id;
-                    RaisePropertyChanged("ProductModel");
+                    if (SelectShipper != null)
+                    {
+                        ProductModel.ShipperId = SelectShipper.Id;
+                        RaisePropertyChanged("ProductModel");
+                    }
                     break;
             }
         }

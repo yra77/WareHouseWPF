@@ -117,6 +117,12 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Accounting" xml:space="preserve">
+    <value>Accounting</value>
+  </data>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
   <data name="AddCategory" xml:space="preserve">
     <value>Add category</value>
   </data>
@@ -128,6 +134,9 @@
   </data>
   <data name="AddingHumanText" xml:space="preserve">
     <value>Fill in all fields</value>
+  </data>
+  <data name="AddInvoice" xml:space="preserve">
+    <value>Add invoice</value>
   </data>
   <data name="AddProduct" xml:space="preserve">
     <value>Add Product</value>
@@ -159,6 +168,9 @@
   <data name="Apartment" xml:space="preserve">
     <value>Apartment</value>
   </data>
+  <data name="ArrivalOfGoods" xml:space="preserve">
+    <value>Arrival of goods</value>
+  </data>
   <data name="Auth" xml:space="preserve">
     <value>Authentication</value>
   </data>
@@ -189,6 +201,9 @@
   <data name="Code" xml:space="preserve">
     <value>Product code</value>
   </data>
+  <data name="CodeQuantityGoods" xml:space="preserve">
+    <value>Code and quantity of goods</value>
+  </data>
   <data name="DateArrival" xml:space="preserve">
     <value>Date arrival</value>
   </data>
@@ -200,6 +215,9 @@
   </data>
   <data name="Email" xml:space="preserve">
     <value>Email</value>
+  </data>
+  <data name="Employee" xml:space="preserve">
+    <value>Employee</value>
   </data>
   <data name="Employees" xml:space="preserve">
     <value>Employees</value>
@@ -218,6 +236,9 @@
   </data>
   <data name="ErrorText_Password" xml:space="preserve">
     <value>8-16 symbols first capital letter, one lowercase letter, one digit</value>
+  </data>
+  <data name="High" xml:space="preserve">
+    <value>High</value>
   </data>
   <data name="HomeText" xml:space="preserve">
     <value>Warehouse accounting management system</value>
@@ -284,6 +305,15 @@
   </data>
   <data name="Street" xml:space="preserve">
     <value>Street</value>
+  </data>
+  <data name="Tables" xml:space="preserve">
+    <value>Tables</value>
+  </data>
+  <data name="TransferGoods" xml:space="preserve">
+    <value>Transfer goods</value>
+  </data>
+  <data name="TransferOfGoods" xml:space="preserve">
+    <value>Transfer of goods</value>
   </data>
   <data name="Type" xml:space="preserve">
     <value>Product type</value>

@@ -11,13 +11,13 @@
       xmlns:p="clr-namespace:WareHouseWPF.Services.Localisation"
       mc:Ignorable="d" 
       d:DesignHeight="650" d:DesignWidth="1000">
-
-
+  
+    
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="3*"/>
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="1*"/>
             <RowDefinition Height="10*"/>
-            <RowDefinition Height="1.5*"/>
         </Grid.RowDefinitions>
 
         <!-- Header -->
@@ -26,186 +26,217 @@
               HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="2*"/>
-                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="12*"/>
             </Grid.ColumnDefinitions>
 
-            <StackPanel Grid.Column="0"
-                        Orientation="Vertical">
-                
-                <Image Source="../Images/warehouse_icon.png"
-                       Stretch="Uniform"/>
+            <Image Grid.Column="0" 
+                       Source="../Images/warehouse_icon.png"
+                       Stretch="Uniform"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"
+                       Margin="10"/>
 
-            </StackPanel>
-
-            <Grid Grid.Column="1">
-             
-                <Label Content="{p:Loc HomeText}"
-                       FontSize="16" 
+            <Label Grid.Column="1"
+                       Content="{p:Loc HomeText}"
+                       FontSize="18" 
                        FontWeight="Bold"
                        Foreground="{DynamicResource m_HighText}"
-                       HorizontalAlignment="Center"/>
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"/>
+        </Grid>
 
-                <Grid HorizontalAlignment="Center"
+        <!--Menu-->
+        <Grid Grid.Row="1"
+              Background="{DynamicResource h_MenuBackground}"
+              Margin="10,0,10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="6*"/>
+            </Grid.ColumnDefinitions>
+
+            <Menu Grid.Column="0"
+                  HorizontalAlignment="Stretch"
+                  HorizontalContentAlignment="Left"
+                  Margin="20,0,0,0"
+                  FontFamily="Verdana"
+                  Background="{DynamicResource h_MenuBackground}"
+                  VerticalAlignment="Center"
+                  FontSize="12">
+
+                <MenuItem  Template="{StaticResource rootMenuItem}"
+                          Header="{p:Loc High}"
+                          Margin="0,0,0,0">
+
+                    <MenuItem Header="Save Project" />
+
+                    <Separator/>
+
+                    <MenuItem Header="{Binding Logout}"
+                              Command="{Binding LogOutBtn}"
+                              Background="{DynamicResource h_BtnLogoutBackground}"
+                              Foreground="{DynamicResource h_BtnLogoutTextColor}">
+                        <MenuItem.Icon>
+                            <Image Source="../../Images/signout.png" Stretch="Fill" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                </MenuItem>
+
+
+                <MenuItem Header="{p:Loc Tables}"
+                          Template="{StaticResource rootMenuItem}"
+                          Margin="0,0,0,0">
+
+                    <MenuItem Header="{p:Loc Products}" 
+                              Command="{Binding ProductsBtn}">
+                        <MenuItem.Icon>
+                            <Image Source="../../Images/icon_basetable.png" Stretch="Fill" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="{p:Loc Shippers}" 
+                              Command="{Binding ShippersBtn}">
+                        <MenuItem.Icon>
+                            <Image Source="../../Images/icon_basetable.png" Stretch="Fill" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="{p:Loc Clients}" 
+                              Command="{Binding ClientsBtn}">
+                        <MenuItem.Icon>
+                            <Image Source="../../Images/icon_basetable.png" Stretch="Fill" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="{p:Loc Employees}" 
+                              Command="{Binding EmployeesBtn}">
+                        <MenuItem.Icon>
+                            <Image Source="../../Images/icon_basetable.png" Stretch="Fill" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="{p:Loc Category}" 
+                              Command="{Binding CategoryBtn}">
+                        <MenuItem.Icon>
+                            <Image Source="../../Images/icon_basetable.png" Stretch="Fill" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="{p:Loc Type}"
+                              Command="{Binding ProductTypeBtn}">
+                        <MenuItem.Icon>
+                            <Image Source="../../Images/icon_basetable.png" Stretch="Fill" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                </MenuItem>
+
+
+                <MenuItem Header="{p:Loc Accounting}"
+                          Template="{StaticResource rootMenuItem}"
+                          Margin="0,0,0,0">
+                    <MenuItem Header="{p:Loc ArrivalOfGoods}" 
+                              Command="{Binding AccountingBtn}"
+                              CommandParameter="arrival">
+                        <MenuItem.Icon>
+                            <Image Source="../../Images/icon_arrivalgoods.png" Stretch="Fill" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+
+                    <MenuItem Header="{p:Loc TransferOfGoods}"
+                              Command="{Binding AccountingBtn}"
+                              CommandParameter="transfer">
+                            <MenuItem.Icon>
+                            <Image Source="../../Images/icon_tranfergoods.png" Stretch="Fill" />
+                            </MenuItem.Icon>
+                        </MenuItem>
+                    </MenuItem>
+
+
+                <MenuItem Header="{p:Loc Settings}"
+                          Template="{StaticResource rootMenuItem}"
+                          Margin="0,0,0,0">
+
+                    <MenuItem Header="{p:Loc Settings}"
+                              Command="{Binding SettingsBtn}">
+                        <MenuItem.Icon>
+                            <Image Source="../../Images/settings.png" Stretch="Fill" />
+                        </MenuItem.Icon>
+                    </MenuItem>
+                </MenuItem>
+
+            </Menu>
+
+
+            <Grid Grid.Column="1" 
+                      HorizontalAlignment="Stretch"
                       VerticalAlignment="Center"
-                      Margin="20,20,20,0">
+                      Margin="0,0,0,0">
+
+                <StackPanel Orientation="Horizontal">
+
+                    <Label Content="{Binding CurrentTime}"
+                           VerticalAlignment="Center"
+                           HorizontalAlignment="Left"
+                           FontSize="14"
+                           FontWeight="Bold"
+                           FontFamily="Verdana"
+                           Margin="0,0,20,0"/>
                     
-                    <TextBox HorizontalAlignment="Right"
-                             VerticalContentAlignment="Center"
+                    <DatePicker HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            IsTodayHighlighted="True"
+                            Margin="0,0,0,0"
+                            IsDropDownOpen="False" 
+                            SelectedDateFormat="Short"
+                            Language="{Binding DatePickerLanguage, UpdateSourceTrigger=PropertyChanged}"
+                            Text="{Binding DateToday}"/>
+
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" 
+                            HorizontalAlignment="Right"
+                            Margin="0,0,30,0">
+                    
+                <TextBox VerticalContentAlignment="Center"
                              Height="25" 
                              Width="250"
                              FontSize="14"
                              Background="{DynamicResource h_searchBackground}"
                              TextWrapping="Wrap"
-                             BorderBrush="{DynamicResource h_searchBorder}"
-                             TextAlignment="Left"
-                             Text=""/>
+                             TextAlignment="Left"/>
 
-                    <Button Margin="10,0,0,0"
-                            Padding="10,0,10,0"
+                <Button Padding="10,0,10,0"
                         Height="25"
                         VerticalAlignment="Top"
-                        HorizontalAlignment="Right"
                         Background="{DynamicResource h_BtnSearchBackground}"
                         Foreground="{DynamicResource h_ButtonSearchText}"
                         BorderBrush="{DynamicResource h_ButtonSearchBorder}" 
                         BorderThickness="0"
-                            >
-                        Search
-                    </Button>
-                    
-                </Grid>
-
-
-                <DatePicker HorizontalAlignment="Left"
-                            VerticalAlignment="Center"
-                      IsTodayHighlighted="True"
-                      Margin="0,20,0,0"
-                        IsDropDownOpen="False" 
-                        SelectedDateFormat="Short"
-                        Language="{Binding DatePickerLanguage, UpdateSourceTrigger=PropertyChanged}"
-                        Text="{Binding DateToday}"/>
-
-                <Button Content="{Binding Logout}"
-                        Background="{DynamicResource h_BtnLogoutBackground}"
-                        Foreground="{DynamicResource h_BtnLogoutTextColor}"
-                    HorizontalAlignment="Right"
-                    Height="30"
-                    Margin="0,20,30,0"
-                        Padding="5"
-                        BorderThickness="0"
-                        Command="{Binding LogOutBtn}">
-                </Button>
+                        Content="Search"/>
+                </StackPanel>
 
             </Grid>
 
         </Grid>
         <!-- End Header -->
 
-        <!--<Line Grid.Row="1" X1="0" X2="1" VerticalAlignment="Top" Stretch="Fill" StrokeThickness="0.1" Stroke="Gray" Margin="0,-5,0,0"/>-->
+        <!--<Line Grid.Row="1" X1="0" X2="1" VerticalAlignment="Bottom" Stretch="Fill" StrokeThickness="0.1" Stroke="Gray" Margin="0,0,0,10"/>-->
 
-
-        <!-- Center -->
-        <Grid Grid.Row="1"
+        <!-- Table -->
+        <Grid Grid.Row="2"
               HorizontalAlignment="Stretch"
-              VerticalAlignment="Stretch">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="9*"/>
-                <ColumnDefinition Width="3*"/>
-            </Grid.ColumnDefinitions>
+              VerticalAlignment="Stretch" Margin="0,0,0,10">
 
-            <!-- Table -->            
-            <ContentControl Grid.Column="0" prism:RegionManager.RegionName="ListViewRegion" />
+            <ContentControl prism:RegionManager.RegionName="ListViewRegion" />
 
             <control:SpinnerControl 
-                Grid.Column="0"
                 HorizontalContentAlignment="Center"
                 VerticalAlignment="Center"
                 Visibility="{Binding IsLoaded, UpdateSourceTrigger=PropertyChanged}"/>
-            <!-- End Table -->
-            
-            <StackPanel Orientation="Vertical"
-                        Grid.Column="1"
-                        VerticalAlignment="Stretch">
 
-                <Button Content="{p:Loc Shippers}"
-                        Background="{DynamicResource h_rightBtnBackground}"
-                        Foreground="{DynamicResource h_rightBtnText}"
-                        BorderThickness="0"
-                        VerticalContentAlignment="Center"
-                        FontSize="14"
-                        Height="30"
-                        Margin="10"
-                        Command="{Binding ShippersBtn}"/>
-                
-                <Button Content="{p:Loc Clients}"
-                        Background="{DynamicResource h_rightBtnBackground}"
-                        Foreground="{DynamicResource h_rightBtnText}"
-                        BorderThickness="0"
-                        VerticalContentAlignment="Center"
-                        FontSize="14"
-                        Height="30"
-                        Margin="10"
-                        Command="{Binding ClientsBtn}"/>
-
-                <Button Content="{p:Loc Products}"
-                        Background="{DynamicResource h_rightBtnBackground}"
-                        Foreground="{DynamicResource h_rightBtnText}"
-                        BorderThickness="0"
-                        VerticalContentAlignment="Center"
-                        FontSize="14"
-                        Height="30"
-                        Margin="10"
-                        Command="{Binding ProductsBtn}"/>
-
-                <Button Content="{p:Loc Employees}"
-                        Background="{DynamicResource h_rightBtnBackground}"
-                        Foreground="{DynamicResource h_rightBtnText}"
-                        BorderThickness="0"
-                        VerticalContentAlignment="Center"
-                        FontSize="14"
-                        Height="30"
-                        Margin="10"
-                        Command="{Binding EmployeesBtn}"/>
-
-                <Button Content="{p:Loc Category}"
-                        Background="{DynamicResource h_rightBtnBackground}"
-                        Foreground="{DynamicResource h_rightBtnText}"
-                        BorderThickness="0"
-                        VerticalContentAlignment="Center"
-                        FontSize="14"
-                        Height="30"
-                        Margin="10"
-                        Command="{Binding CategoryBtn}"/>
-
-                <Button Content="{p:Loc Type}"
-                        Background="{DynamicResource h_rightBtnBackground}"
-                        Foreground="{DynamicResource h_rightBtnText}"
-                        BorderThickness="0"
-                        VerticalContentAlignment="Center"
-                        FontSize="14"
-                        Height="30"
-                        Margin="10"
-                        Command="{Binding ProductTypeBtn}"/>
-
-                <Button Content="{p:Loc Settings}"
-                        Background="{DynamicResource h_rightBtnBackground}"
-                        Foreground="{DynamicResource h_rightBtnText}"
-                        BorderThickness="0"
-                        VerticalContentAlignment="Center"
-                        FontSize="14"
-                        Height="30"
-                        Margin="10"
-                        Command="{Binding SettingsBtn}"/>
-
-            </StackPanel>
-
-</Grid>
-        <!-- End Center -->
-
-
-        <Grid Grid.Row="2">
-            
         </Grid>
+        <!-- End Table -->
 
     </Grid>
 </UserControl>

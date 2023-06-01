@@ -2,6 +2,7 @@
 
 using WareHouseWPF.Events;
 using WareHouseWPF.Models;
+using WareHouseWPF.Services.Sort;
 using WareHouseWPF.Controls.Listviews;
 using WareHouseWPF.Services.DataService;
 using WareHouseWPF.Services.AccessRoles;
@@ -13,13 +14,13 @@ using Prism.Regions;
 using Prism.Commands;
 
 using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Windows;
 using System.Diagnostics;
 using System.Windows.Markup;
 using System.ComponentModel;
-using System.Windows;
-
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace WareHouseWPF.ViewsModel
 {
@@ -28,6 +29,7 @@ namespace WareHouseWPF.ViewsModel
 
 
         private bool _isComeIn;
+        private string _tableName;
 
 
         public HomeViewModel(IRegionManager regionManager,
@@ -35,13 +37,15 @@ namespace WareHouseWPF.ViewsModel
                              IDataService dataService,
                              IAccessRole accessRole,
                              ITranslationSource translation,
-                             IEventAggregator eventAggregator)
+                             IEventAggregator eventAggregator,
+                             ISortService sortService)
             : base()
         {
             _eventAggregator = eventAggregator;
             _regionManager = regionManager;
             _verifyService = verifyService;
             _dataService = dataService;
+            _sortService = sortService;
             _translation = translation;
             _accessRole = accessRole;
 
@@ -177,8 +181,8 @@ namespace WareHouseWPF.ViewsModel
 
 
         private Shipper _selectedShipper;
-        public Shipper SelectedShipper 
-        { 
+        public Shipper SelectedShipper
+        {
             get => _selectedShipper;
             set => SetProperty(ref _selectedShipper, value);
         }
@@ -216,6 +220,14 @@ namespace WareHouseWPF.ViewsModel
         }
 
 
+        private string _currentTime;
+        public string CurrentTime
+        {
+            get => _currentTime;
+            set => SetProperty(ref _currentTime, value);
+        }
+
+
         public DelegateCommand ClientsBtn => new DelegateCommand(ClientsPrint);
         public DelegateCommand EmployeesBtn => new DelegateCommand(EmployeesPrint);
         public DelegateCommand ShippersBtn => new DelegateCommand(ShippersPrint);
@@ -229,10 +241,48 @@ namespace WareHouseWPF.ViewsModel
         public DelegateCommand<object> AddBtnInList => new DelegateCommand<object>(AddEntity);
         public DelegateCommand SettingsBtn => new DelegateCommand(SettingsClick);
         public DelegateCommand LogOutBtn => new DelegateCommand(LogOut_Click);
-
+        public DelegateCommand<object> AccountingBtn => new DelegateCommand<object>(AccountingPrint);
+        public DelegateCommand<string> HeaderClick => new DelegateCommand<string>(Header_Click);
 
         #endregion
 
+
+        private void Header_Click(string columnName)
+        {
+           
+            switch (_tableName)
+            {
+                case "Employee":
+                    ListEmployee = _sortService.SortEmployee(columnName, ListEmployee);
+                    RaisePropertyChanged("ListEmployee");
+                    break;
+
+                case "Client":
+                    ListClient = _sortService.SortClient(columnName, ListClient);
+                    RaisePropertyChanged("ListClient");
+                    break;
+
+                case "Shipper":
+                    ListShipper = _sortService.SortShipper(columnName, ListShipper);
+                    RaisePropertyChanged("ListShipper");
+                    break;
+
+                case "Product":
+                    ListProduct = _sortService.SortProduct(columnName, ListProduct);
+                    RaisePropertyChanged("ListProduct");
+                    break;
+
+                case "Category":
+                    ListCategory = _sortService.SortCategory(columnName, ListCategory);
+                    RaisePropertyChanged("ListCategory");
+                    break;
+
+                case "ProductType":
+                    ListType = _sortService.SortProductType(columnName, ListType);
+                    RaisePropertyChanged("ListType");
+                    break;
+            }
+        }
 
         public void LogOut_Click()
         {
@@ -246,6 +296,20 @@ namespace WareHouseWPF.ViewsModel
             _regionManager.RequestNavigate("MainRegion", "Settings");
         }
 
+        private void AccountingPrint(object obj)
+        {
+            if (MediumPermission)
+            {
+                var res = obj.ToString();
+
+                var parameters = new NavigationParameters
+                {
+                      { "entity", res }
+                };
+                _regionManager.RequestNavigate("MainRegion", "Accounting", parameters);
+            }
+        }
+
         private async void ClientsPrint()
         {
             if (MediumPermission)
@@ -253,11 +317,10 @@ namespace WareHouseWPF.ViewsModel
                 IsLoaded = "Visible";
 
                 ListClient = new List<ClientModel>(await _dataService.GetDataAsync<ClientModel>());
-
                 _regionManager.RequestNavigate("ListViewRegion", "ClientList");
 
-                // RaisePropertyChanged("List");
-                IsLoaded = "Hidden";//Visible
+                _tableName = "Client";
+                IsLoaded = "Hidden";
             }
         }
 
@@ -271,8 +334,8 @@ namespace WareHouseWPF.ViewsModel
 
                 ListEmployee = new List<Employee>(await _dataService.GetDataAsync<Employee>());
 
-                // RaisePropertyChanged("List");
-                IsLoaded = "Hidden";//Visible
+                _tableName = "Employee";
+                IsLoaded = "Hidden";
             }
         }
 
@@ -286,8 +349,8 @@ namespace WareHouseWPF.ViewsModel
 
                 ListShipper = new List<Shipper>(await _dataService.GetDataAsync<Shipper>());
 
-                // RaisePropertyChanged("List");
-                IsLoaded = "Hidden";//Visible
+                _tableName = "Shipper";
+                IsLoaded = "Hidden";
             }
         }
 
@@ -297,6 +360,7 @@ namespace WareHouseWPF.ViewsModel
             {
                 if (_isComeIn)
                 {
+                    _tableName = "Product";
                     _regionManager.RequestNavigate("ListViewRegion", "ProductList");
                 }
                 IsLoaded = "Visible";
@@ -304,7 +368,8 @@ namespace WareHouseWPF.ViewsModel
                 ListProduct = new List<Product>(await _dataService.GetDataAsync<Product>());
 
                 RaisePropertyChanged("ListProduct");
-                IsLoaded = "Hidden";//Visible
+
+                IsLoaded = "Hidden";
             }
         }
 
@@ -318,8 +383,8 @@ namespace WareHouseWPF.ViewsModel
 
                 ListCategory = new List<Categories>(await _dataService.GetDataAsync<Categories>());
 
-                // RaisePropertyChanged("List");
-                IsLoaded = "Hidden";//Visible
+                _tableName = "Category";
+                IsLoaded = "Hidden";
             }
         }
 
@@ -334,7 +399,8 @@ namespace WareHouseWPF.ViewsModel
                 ListType = new List<ProductType>(await _dataService.GetDataAsync<ProductType>());
 
                 RaisePropertyChanged("ListType");
-                IsLoaded = "Hidden";//Visible
+                _tableName = "ProductType";
+                IsLoaded = "Hidden";
             }
         }
 
@@ -401,6 +467,13 @@ namespace WareHouseWPF.ViewsModel
                 _eventAggregator.GetEvent<MyEvent>().Subscribe(ShippersPrint);
                 _regionManager.RequestNavigate("MainRegion", "AddShipper");
             }
+        }
+
+        private async void UpdateTime()
+        {
+            CurrentTime = DateTime.Now.ToShortTimeString();
+            await Task.Delay(1000);
+            UpdateTime();
         }
 
 
@@ -513,15 +586,17 @@ namespace WareHouseWPF.ViewsModel
 
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
-
-            _accessRole.GetAccessPermission(out _highestPermission,
-                                           out _mediumPermission,
-                                           out _lowPermission,
-                                           out _lowestPermission);
-            
+            if (!_isComeIn)
+            {
+                _accessRole.GetAccessPermission(out _highestPermission,
+                                               out _mediumPermission,
+                                               out _lowPermission,
+                                               out _lowestPermission);
+             
                 if (LowPermission)
                 {
                     ProductsPrint();
+                    _tableName = "Product";
                     _isComeIn = true;
                 }
                 else
@@ -530,6 +605,8 @@ namespace WareHouseWPF.ViewsModel
                 }
 
                 DatePickerLanguage = XmlLanguage.GetLanguage(WareHouseWPF.Properties.Settings.Default.Language.IetfLanguageTag);
+                UpdateTime();
+            }
         }
 
         #endregion

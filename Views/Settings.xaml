@@ -33,7 +33,7 @@
                 Padding="5"
                 Foreground="{DynamicResource s_btntext}"
                 Command="{Binding BackBtn}"
-                Content="GoBack"/>
+                Content="{p:Loc Back}"/>
 
         <StackPanel Grid.Row="1" Orientation="Vertical"
                     HorizontalAlignment="Left"

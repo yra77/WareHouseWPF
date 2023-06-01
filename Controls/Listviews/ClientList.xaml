@@ -40,96 +40,181 @@
                     </Style.Triggers>
                 </Style>
             </ListView.Resources>
+            
+            
         <ListView.View>
-            <GridView>
+                <GridView ColumnHeaderContainerStyle="{StaticResource GridHeader}">
                 <GridView.Columns>
 
-                    <GridViewColumn Header="Id" Width="50">
-                        <GridViewColumn.CellTemplate>
+                        <GridViewColumn>
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Width="50" 
+                                                      Content="Id"
+                                                      Command="{Binding HeaderClick}" 
+                                                      CommandParameter="Id"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock FontSize="12" 
-                                           HorizontalAlignment="Center" 
+                                    <Border BorderBrush="LightGray" BorderThickness="1,1,0,1" Margin="-8,-3" Padding="3">
+                                        <TextBlock FontSize="12" 
+                                           HorizontalAlignment="Center"
                                            Text="{Binding Path=Id, UpdateSourceTrigger=PropertyChanged}" 
                                            VerticalAlignment="Center"
                                            />
-                            </DataTemplate>
+                                    </Border>
+                                </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                        <GridViewColumn Header="{p:Loc Name}" Width="130">
+                        <GridViewColumn>
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="{p:Loc Name}" 
+                                                      Width="150" 
+                                                      Command="{Binding HeaderClick}" 
+                                                      CommandParameter="Name"/>
+                            </GridViewColumn.Header>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock FontSize="12" 
-                                               HorizontalAlignment="Center"  
+                                    <Border BorderBrush="LightGray" BorderThickness="1,1,0,1" Margin="-6,-3" Padding="3">
+                                        <TextBlock FontSize="12" 
+                                               HorizontalAlignment="Left"  
                                                Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" 
                                                VerticalAlignment="Center"/>
+                                    </Border>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="{p:Loc SecondName}" Width="150">
+                        <GridViewColumn>
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="{p:Loc SecondName}" 
+                                                      Width="150" 
+                                                      Command="{Binding HeaderClick}" 
+                                                      CommandParameter="SecondName"/>
+                            </GridViewColumn.Header>
                         <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock FontSize="12" 
-                                           HorizontalAlignment="Center"
+                                <DataTemplate>
+                                    <Border BorderBrush="LightGray" BorderThickness="1,1,0,1" Margin="-6,-3" Padding="3">
+                                        <TextBlock FontSize="12" 
+                                               HorizontalAlignment="Left"  
                                            Text="{Binding Path=SecondName, UpdateSourceTrigger=PropertyChanged}"
                                            VerticalAlignment="Center"/>
-                            </DataTemplate>
+                                    </Border>
+                                </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                    <GridViewColumn Header="{p:Loc Organization}" Width="150">
-                        <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock FontSize="12"
-                                           HorizontalAlignment="Center"
+                        <GridViewColumn>
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="{p:Loc Organization}" 
+                                                      Width="200" 
+                                                      Command="{Binding HeaderClick}" 
+                                                      CommandParameter="Organization"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="LightGray" BorderThickness="1,1,0,1" Margin="-6,-3" Padding="3">
+                                        <TextBlock FontSize="12" 
+                                               HorizontalAlignment="Left"  
                                            Text="{Binding Path=Organization, UpdateSourceTrigger=PropertyChanged}" 
                                            VerticalAlignment="Center"/>
-                            </DataTemplate>
+                                    </Border>
+                                </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                        <GridViewColumn Header="{p:Loc City}" Width="150">
+                        <GridViewColumn>
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="{p:Loc City}" 
+                                                      Width="150" 
+                                                      Command="{Binding HeaderClick}" 
+                                                      CommandParameter="City"/>
+                            </GridViewColumn.Header>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock FontSize="12" 
-                                           HorizontalAlignment="Center"
+                                    <Border BorderBrush="LightGray" BorderThickness="1,1,0,1" Margin="-6,-3" Padding="3">
+                                        <TextBlock FontSize="12" 
+                                               HorizontalAlignment="Left"  
                                            Text="{Binding Path=City, UpdateSourceTrigger=PropertyChanged}" 
                                            VerticalAlignment="Center"/>
+                                    </Border>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="{p:Loc Email}" Width="150">
+                        <GridViewColumn>
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="{p:Loc Street}" 
+                                                      Width="172" 
+                                                      Command="{Binding HeaderClick}" 
+                                                      CommandParameter="Street"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Border BorderBrush="LightGray" BorderThickness="1,1,0,1" Margin="-6,-3" Padding="3">
+                                        <TextBlock FontSize="12" 
+                                               HorizontalAlignment="Left"  
+                                           Text="{Binding Path=Street, UpdateSourceTrigger=PropertyChanged}" 
+                                           VerticalAlignment="Center"/>
+                                    </Border>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn>
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="{p:Loc Email}" 
+                                                      Width="150" 
+                                                      Command="{Binding HeaderClick}" 
+                                                      CommandParameter="Email"/>
+                            </GridViewColumn.Header>
                         <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock FontSize="12" 
-                                           HorizontalAlignment="Center"
+                                <DataTemplate>
+                                    <Border BorderBrush="LightGray" BorderThickness="1,1,0,1" Margin="-6,-3" Padding="3">
+                                        <TextBlock FontSize="12" 
+                                               HorizontalAlignment="Left"  
                                            Text="{Binding Path=Email, UpdateSourceTrigger=PropertyChanged}" 
                                            VerticalAlignment="Center"/>
-                            </DataTemplate>
+                                    </Border>
+                                </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 
-                        <GridViewColumn Header="{p:Loc BankName}" Width="130">
+                        <GridViewColumn>
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="{p:Loc BankName}" 
+                                                      Width="150" 
+                                                      Command="{Binding HeaderClick}" 
+                                                      CommandParameter="BankName"/>
+                            </GridViewColumn.Header>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock FontSize="12" 
-                                               HorizontalAlignment="Center" 
+                                    <Border BorderBrush="LightGray" BorderThickness="1,1,0,1" Margin="-6,-3" Padding="3">
+                                        <TextBlock FontSize="12" 
+                                               HorizontalAlignment="Left"  
                                                Text="{Binding Path=BanksAccount[0].Name, UpdateSourceTrigger=PropertyChanged}" 
                                                VerticalAlignment="Center"/>
+                                    </Border>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="{p:Loc Phone}" Width="160">
+                        <GridViewColumn>
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="{p:Loc Phone}" 
+                                                      Width="160" 
+                                                      Command="{Binding HeaderClick}" 
+                                                      CommandParameter="Phone"/>
+                            </GridViewColumn.Header>
                         <GridViewColumn.CellTemplate>
-                            <DataTemplate>
-                                <TextBlock FontSize="12" 
+                                <DataTemplate>
+                                    <Border BorderBrush="LightGray" BorderThickness="1,1,1,1" Margin="-7,-3" Padding="3">
+                                        <TextBlock FontSize="12" 
                                            HorizontalAlignment="Center"
                                            Text="{Binding Path=PhoneNumber, UpdateSourceTrigger=PropertyChanged}" 
                                            VerticalAlignment="Center"/>
-                            </DataTemplate>
+                                    </Border>
+                                </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
 

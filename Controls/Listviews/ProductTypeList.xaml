@@ -7,9 +7,9 @@
              prism:ViewModelLocator.AutoWireViewModel="true"
              xmlns:p="clr-namespace:WareHouseWPF.Services.Localisation"
              mc:Ignorable="d">
-    
-    
-    <Grid>
+
+
+    <Grid Grid.Column="0" MaxWidth="328">
 
         <ListView HorizontalContentAlignment="Stretch"
               ItemsSource="{Binding ListType, UpdateSourceTrigger=PropertyChanged}"
@@ -42,30 +42,48 @@
                     </Style.Triggers>
                 </Style>
             </ListView.Resources>
+            
+            
             <ListView.View>
-                <GridView>
+                <GridView ColumnHeaderContainerStyle="{StaticResource GridHeader}">
                     <GridView.Columns>
 
-                        <GridViewColumn Header="Id" Width="50">
+                        <GridViewColumn>
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Width="50" 
+                                                      Content="Id"
+                                                      Command="{Binding HeaderClick}" 
+                                                      CommandParameter="Id"/>
+                            </GridViewColumn.Header>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock FontSize="12" 
-                                           HorizontalAlignment="Center" 
+                                    <Border BorderBrush="LightGray" BorderThickness="1,1,0,1" Margin="-6,-3" Padding="3">
+                                        <TextBlock FontSize="12" 
+                                               HorizontalAlignment="Center" 
                                            Text="{Binding Path=Id, UpdateSourceTrigger=PropertyChanged}" 
                                            VerticalAlignment="Center"
                                            />
+                                    </Border>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
-                        <GridViewColumn Header="{p:Loc Name}" Width="250">
+                        <GridViewColumn>
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="{p:Loc Name}" 
+                                                      Width="250" 
+                                                      Command="{Binding HeaderClick}" 
+                                                      CommandParameter="Name"/>
+                            </GridViewColumn.Header>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock FontSize="12" 
-                                           HorizontalAlignment="Center" 
+                                    <Border BorderBrush="LightGray" BorderThickness="1,1,1,1" Margin="-6,-3" Padding="3">
+                                        <TextBlock FontSize="12" 
+                                           HorizontalAlignment="Left" 
                                            Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" 
                                            VerticalAlignment="Center"
                                            />
+                                    </Border>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>

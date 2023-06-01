@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="WareHouseWPF.Controls.Listviews.ShipperList"
+﻿<UserControl x:Class="WareHouseWPF.Controls.AccountingList.TransferList"
               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -14,11 +14,11 @@
              Background="{DynamicResource ah_background}">
 
 
-    <Grid Grid.Column="0" MaxWidth="800">
+    <Grid Grid.Column="0">
 
         <ListView HorizontalContentAlignment="Center"
-              ItemsSource="{Binding ListShipper, UpdateSourceTrigger=PropertyChanged}"
-              SelectedItem="{Binding SelectedShipper}" 
+              ItemsSource="{Binding ListTransfer, UpdateSourceTrigger=PropertyChanged}"
+              SelectedItem="{Binding SelectedTransfer}" 
               SelectedIndex="-1"
               SelectionMode="Single"
               Margin="10,10,10,10"
@@ -49,7 +49,7 @@
             </ListView.Resources>
 
             <ListView.View>
-                <GridView ColumnHeaderContainerStyle="{StaticResource GridHeader}">
+                <GridView>
                     <GridView.Columns>
 
                         <GridViewColumn>
@@ -61,12 +61,10 @@
                             </GridViewColumn.Header>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Border BorderBrush="LightGray" BorderThickness="1,1,0,1" Margin="-8,-3" Padding="3">
-                                        <TextBlock FontSize="12" 
+                                    <TextBlock FontSize="12" 
                                                HorizontalAlignment="Center"
                                                Text="{Binding Path=Id, UpdateSourceTrigger=PropertyChanged}" 
                                                VerticalAlignment="Center"/>
-                                    </Border>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -74,75 +72,89 @@
                         <GridViewColumn>
                             <GridViewColumn.Header>
                                 <GridViewColumnHeader Content="{p:Loc Name}" 
-                                                      Width="160" 
+                                                      Width="200" 
                                                       Command="{Binding HeaderClick}" 
                                                       CommandParameter="Name"/>
                             </GridViewColumn.Header>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Border BorderBrush="LightGray" BorderThickness="1,1,0,1" Margin="-6,-3" Padding="3">
-                                        <TextBlock FontSize="12" 
-                                               HorizontalAlignment="Left"   
+                                    <TextBlock FontSize="12" 
+                                               HorizontalAlignment="Center"  
                                                Text="{Binding Path=Name, UpdateSourceTrigger=PropertyChanged}" 
                                                VerticalAlignment="Center"/>
-                                    </Border>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
                         <GridViewColumn>
                             <GridViewColumn.Header>
-                                <GridViewColumnHeader Content="{p:Loc Phone}" 
-                                                      Width="180" 
+                                <GridViewColumnHeader Content="{p:Loc Employee}" 
+                                                      Width="160" 
                                                       Command="{Binding HeaderClick}" 
-                                                      CommandParameter="Phone"/>
+                                                      CommandParameter="Employee"/>
                             </GridViewColumn.Header>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Border BorderBrush="LightGray" BorderThickness="1,1,0,1" Margin="-6,-3" Padding="3">
-                                        <TextBlock FontSize="12" 
+                                    <TextBlock FontSize="12" 
                                                HorizontalAlignment="Center"  
-                                               Text="{Binding Path=Phone, UpdateSourceTrigger=PropertyChanged}" 
+                                               Text="{Binding Path=EmployeeId, UpdateSourceTrigger=PropertyChanged}" 
                                                VerticalAlignment="Center"/>
-                                    </Border>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
 
                         <GridViewColumn>
                             <GridViewColumn.Header>
-                                <GridViewColumnHeader Content="{p:Loc BankName}" 
-                                                      Width="180" 
+                                <GridViewColumnHeader Content="{p:Loc WarehouseNumber}" 
+                                                      Width="130" 
                                                       Command="{Binding HeaderClick}" 
-                                                      CommandParameter="BankName"/>
+                                                      CommandParameter="WarehouseNumber"/>
                             </GridViewColumn.Header>
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Border BorderBrush="LightGray" BorderThickness="1,1,0,1" Margin="-6,-3" Padding="3">
-                                        <TextBlock FontSize="12" 
-                                               HorizontalAlignment="Left"  
-                                               Text="{Binding Path=BankAccount[0].Name, UpdateSourceTrigger=PropertyChanged}" 
-                                               VerticalAlignment="Center"/>
-                                    </Border>
-                                </DataTemplate>
-                            </GridViewColumn.CellTemplate>
-                        </GridViewColumn>
-
-                        <GridViewColumn>
-                            <GridViewColumn.Header>
-                                <GridViewColumnHeader Content="{p:Loc BankAccount}" 
-                                                      Width="200" 
-                                                      Command="{Binding HeaderClick}" 
-                                                      CommandParameter="BankAccount"/>
-                            </GridViewColumn.Header>
-                            <GridViewColumn.CellTemplate>
-                                <DataTemplate>
-                                    <Border BorderBrush="LightGray" BorderThickness="1,1,1,1" Margin="-6,-3" Padding="3">
-                                        <TextBlock FontSize="12" 
+                                    <TextBlock FontSize="12" 
                                                HorizontalAlignment="Center" 
-                                               Text="{Binding Path=BankAccount[0].BankAccounts, UpdateSourceTrigger=PropertyChanged}" 
+                                               Text="{Binding Path=WarehouseNumber, UpdateSourceTrigger=PropertyChanged}" 
                                                VerticalAlignment="Center"/>
-                                    </Border>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn>
+                            <GridViewColumn.Header>
+                                <GridViewColumnHeader Content="{p:Loc Clients}" 
+                                                      Width="130" 
+                                                      Command="{Binding HeaderClick}" 
+                                                      CommandParameter="Client"/>
+                            </GridViewColumn.Header>
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock FontSize="12" 
+                                               HorizontalAlignment="Center" 
+                                               Text="{Binding Path=ClientId, UpdateSourceTrigger=PropertyChanged}" 
+                                               VerticalAlignment="Center"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+
+                        <GridViewColumn Header="{p:Loc TransferGoods}" Width="250">
+                            <GridViewColumn.CellTemplate>
+                                <DataTemplate>
+
+                                    <ComboBox Grid.Column="0" 
+                                              MinWidth="200"
+                                  ItemsSource="{Binding Path=Code_Quantity}" 
+                                  IsTextSearchEnabled="True">
+                                        <ComboBox.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel Orientation="Horizontal">
+                                                    <TextBlock Text="{Binding Code}" />
+                                                    <TextBlock Text="{Binding Quantity}" Margin="30,0,0,0"/>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ComboBox.ItemTemplate>
+                                    </ComboBox>
+
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -153,18 +165,5 @@
             </ListView.View>
         </ListView>
 
-
-        <Button HorizontalAlignment="Right" 
-            VerticalAlignment="Bottom"
-            Padding="10,5,10,5"
-            Margin="0,0,35,35"
-            Background="{DynamicResource hc_btnAdd}"
-            Foreground="{DynamicResource hc_btnAddText}"
-            FontWeight="Medium"
-            BorderThickness="0"
-            Command="{Binding AddBtnShipper}"
-            Content="{p:Loc AddShipper}"/>
-
     </Grid>
-
 </UserControl>

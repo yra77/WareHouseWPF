@@ -13,5 +13,7 @@ namespace WareHouseWPF.Constants
         public const string CATEGORY_URL = "http://192.168.0.105:5048/api/Categories";
         public const string PRODUCT_TYPE_URL = "http://192.168.0.105:5048/api/ProductTypes";
         public const string SHIPPER_URL = "http://192.168.0.105:5048/api/Shippers";
+        public const string ARRIVAL_URL = "http://192.168.0.105:5048/api/ArrivalOfGoods";
+        public const string TRANSFER_URL = "http://192.168.0.105:5048/api/TransferOfGoods";
     }
 }

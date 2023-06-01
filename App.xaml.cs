@@ -6,6 +6,7 @@ using WareHouseWPF.Services.Localisation;
 using WareHouseWPF.Services.DataService;
 using WareHouseWPF.Services.AccessRoles;
 using WareHouseWPF.Services.Repository;
+using WareHouseWPF.Services.Sort;
 using WareHouseWPF.Services.Auth;
 using WareHouseWPF.ViewsModel;
 using WareHouseWPF.Views;
@@ -35,6 +36,8 @@ namespace WareHouseWPF
             regionManager.RegisterViewWithRegion("MainRegion", typeof(AddProduct));
             regionManager.RegisterViewWithRegion("MainRegion", typeof(AddTypeCategory));
             regionManager.RegisterViewWithRegion("MainRegion", typeof(AddShipper));
+            regionManager.RegisterViewWithRegion("MainRegion", typeof(Accounting));
+            regionManager.RegisterViewWithRegion("MainRegion", typeof(AddAccounting));
             //   regionManager.RegisterViewWithRegion("CoinInfoRegion", typeof(Settings));
         }
 
@@ -49,6 +52,7 @@ namespace WareHouseWPF
             containerRegistry.RegisterSingleton<ISettingsManager, SettingsManager>();
             containerRegistry.RegisterSingleton<ITranslationSource, TranslationSource>();
             containerRegistry.RegisterSingleton<IAccessRole, AccessRole>();
+            containerRegistry.RegisterSingleton<ISortService, SortService>();
 
 
             // register pages
@@ -60,6 +64,8 @@ namespace WareHouseWPF
             containerRegistry.RegisterForNavigation<AddTypeCategory, AddTypeCategoryViewModel>();
             containerRegistry.RegisterForNavigation<AddShipper, AddShipperViewModel>();
             containerRegistry.RegisterForNavigation<Views.Settings, SettingsViewModel>();
+            containerRegistry.RegisterForNavigation<Accounting, AccountingViewModel>();
+            containerRegistry.RegisterForNavigation<AddAccounting, AddAccountingViewModel>();
         }
         protected override Window CreateShell()
         {

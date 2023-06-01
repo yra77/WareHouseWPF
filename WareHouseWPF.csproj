@@ -111,6 +111,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\AccountingList\ArrivalList.xaml.cs">
+      <DependentUpon>ArrivalList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\AccountingList\TransferList.xaml.cs">
+      <DependentUpon>TransferList.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Entrys\MyTextBox.cs" />
     <Compile Include="Controls\Listviews\CategoryList.xaml.cs">
       <DependentUpon>CategoryList.xaml</DependentUpon>
@@ -122,9 +128,12 @@
     <Compile Include="Converters\StrToIntConvert.cs" />
     <Compile Include="Enums\AccessPermisions.cs" />
     <Compile Include="Events\MyEvent.cs" />
+    <Compile Include="Models\ArrivalOfGoods.cs" />
     <Compile Include="Models\Categories.cs" />
+    <Compile Include="Models\ListCode.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductType.cs" />
+    <Compile Include="Models\TransferOfGoods.cs" />
     <Compile Include="Properties\Resources.en1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -144,10 +153,20 @@
     <Compile Include="Services\AccessRoles\IAccessRole.cs" />
     <Compile Include="Services\SettingsManager\ISettingsManager.cs" />
     <Compile Include="Services\SettingsManager\SettingsManager.cs" />
+    <Compile Include="Services\Sort\ISortService.cs" />
+    <Compile Include="Services\Sort\SortService.cs" />
+    <Compile Include="ViewsModel\AccountingViewModel.cs" />
+    <Compile Include="ViewsModel\AddAccountingViewModel.cs" />
     <Compile Include="ViewsModel\AddProductViewModel.cs" />
     <Compile Include="ViewsModel\AddShipperViewModel.cs" />
     <Compile Include="ViewsModel\AddTypeCategoryViewModel.cs" />
     <Compile Include="ViewsModel\SettingsViewModel.cs" />
+    <Compile Include="Views\Accounting.xaml.cs">
+      <DependentUpon>Accounting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\AddAccounting.xaml.cs">
+      <DependentUpon>AddAccounting.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\AddProduct.xaml.cs">
       <DependentUpon>AddProduct.xaml</DependentUpon>
     </Compile>
@@ -160,6 +179,14 @@
     <Compile Include="Views\Settings.xaml.cs">
       <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
+    <Page Include="Controls\AccountingList\ArrivalList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\AccountingList\TransferList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\Listviews\CategoryList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -185,6 +212,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\Spinner\SpinnerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Accounting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\AddAccounting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -344,6 +379,22 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\icon_shipper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\settings.png" />
+    <Resource Include="Images\signout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon_arrivalgoods.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon_tranfergoods.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon_basetable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\delete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

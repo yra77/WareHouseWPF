@@ -88,7 +88,8 @@
                                   DisplayMemberPath="Name"
                                   />
                         
-                    <controls:MyTextBox Height="25" Grid.Column="1"
+                    <controls:MyTextBox Height="25"
+                                        Grid.Column="1"
                                         IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                         SelectedType="digit"
                                         MaxLength="10"
