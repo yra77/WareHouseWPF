@@ -151,6 +151,8 @@
     </Compile>
     <Compile Include="Services\AccessRoles\AccessRole.cs" />
     <Compile Include="Services\AccessRoles\IAccessRole.cs" />
+    <Compile Include="Services\Search\ISearch.cs" />
+    <Compile Include="Services\Search\Search.cs" />
     <Compile Include="Services\SettingsManager\ISettingsManager.cs" />
     <Compile Include="Services\SettingsManager\SettingsManager.cs" />
     <Compile Include="Services\Sort\ISortService.cs" />

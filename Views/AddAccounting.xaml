@@ -112,15 +112,15 @@
                             BorderThickness="1"
                             Padding="5"
                             Margin="0,20,0,20">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="1*"/>
-                            <RowDefinition Height="1*"/>
-                        </Grid.RowDefinitions>
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="1*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
 
-                        <StackPanel Grid.Row="0"
+                            <StackPanel Grid.Row="0"
                                     Orientation="Vertical">
-                        <TextBlock Text="{p:Loc CodeQuantityGoods}"
+                                <TextBlock Text="{p:Loc CodeQuantityGoods}"
                                Foreground="{DynamicResource ah_span}"
                                HorizontalAlignment="Left"
                                FontFamily="Verdana"
@@ -136,21 +136,21 @@
                                   HorizontalContentAlignment="Stretch"
                                   Text="{Binding TextCodeQuantity, UpdateSourceTrigger=PropertyChanged}"
                                   SelectedItem="{Binding SelectedListCode}">
-                            <ComboBox.ItemTemplate>
+                                    <ComboBox.ItemTemplate>
                                         <DataTemplate>
                                             <Grid HorizontalAlignment="Stretch">
-                                                
+
                                                 <TextBox x:Name="itemId"
                                                          Visibility="Collapsed"
                                                          Text="{Binding Id}"/>
-                                                
+
                                                 <TextBlock Text="{Binding Code}" 
                                                    HorizontalAlignment="Left" />
-                                                
+
                                                 <TextBlock Text="{Binding Quantity}" 
                                                            HorizontalAlignment="Center" 
                                                            Margin="30,0,0,0"/>
-                                                
+
                                                 <Button HorizontalAlignment="Right"
                                                         Height="25"
                                                         Width="25"
@@ -164,10 +164,10 @@
                                             </Grid>
                                         </DataTemplate>
                                     </ComboBox.ItemTemplate>
-                        </ComboBox>
-                        </StackPanel>
+                                </ComboBox>
+                            </StackPanel>
 
-                        <StackPanel Grid.Row="1"
+                            <StackPanel Grid.Row="1"
                                     Orientation="Vertical">
 
                                 <TextBlock 
@@ -188,7 +188,7 @@
                                         <ColumnDefinition Width="1*"/>
                                         <ColumnDefinition Width="1*"/>
                                     </Grid.ColumnDefinitions>
-                                    
+
 
                                     <TextBlock Grid.Row="0"
                                            Grid.Column="0"
@@ -226,7 +226,7 @@
                              FontSize="14"
                              Text="{Binding Path=Quantity, Converter={StaticResource ToInt}, UpdateSourceTrigger=PropertyChanged}"/>
                                 </Grid>
-                            
+
                                 <Button Content="{p:Loc Add}"
                                 Padding="5"
                                 Margin="0,10,0,10"
@@ -236,19 +236,21 @@
                                 Background="{DynamicResource ah_btnback}"
                                 Foreground="{DynamicResource ah_btnbacktext}"
                                 Command="{Binding AddListCode}"/>
-                        </StackPanel>
-                    </Grid>
+                            </StackPanel>
+                        </Grid>
                     </Border>
-                    
+
                     <!--for arrival-->
                     <Grid Margin="0,15,0,0"
                                 Visibility="{Binding IsArrivalVisible, UpdateSourceTrigger=PropertyChanged}">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
 
                         <ComboBox Grid.Column="0" 
+                                  Margin="0,0,10,0"
                                   ItemsSource="{Binding ListShipper, UpdateSourceTrigger=PropertyChanged}" 
                                   SelectedItem="{Binding SelectShipper, UpdateSourceTrigger=PropertyChanged}"
                                   IsTextSearchEnabled="True" 
@@ -263,6 +265,17 @@
                              FontFamily="Verdana"
                              FontSize="14"
                              Text="{Binding Path=Id, UpdateSourceTrigger=PropertyChanged}"/>
+
+                        <Button Grid.Column="2"
+                                VerticalAlignment="Center"
+                                Padding="0,5,0,5"
+                                Margin="10,0,0,0"
+                                Background="{DynamicResource hc_btnAdd}"
+                                Foreground="{DynamicResource hc_btnAddText}"
+                                FontWeight="Medium"
+                                BorderThickness="0"
+                                Command="{Binding AddBtnShipper}"
+                                Content="{p:Loc AddShipper}"/>
 
                     </Grid>
                     <!--END arrival-->

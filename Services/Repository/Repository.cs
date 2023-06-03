@@ -142,7 +142,7 @@ namespace WareHouseWPF.Services.Repository
             catch (Exception ex)
             {
                 Console.WriteLine(@"ERROR {0}", ex.Message);
-                throw new Exception("Server Connection Error");
+                //throw new Exception("Server Connection Error");
             }
 
             return login;

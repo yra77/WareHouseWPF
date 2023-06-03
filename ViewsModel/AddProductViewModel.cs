@@ -13,6 +13,7 @@ using Prism.Events;
 using System.Windows;
 using System.Collections.Generic;
 using System.ComponentModel;
+using WareHouseWPF.Views;
 
 
 namespace WareHouseWPF.ViewsModel
@@ -126,10 +127,30 @@ namespace WareHouseWPF.ViewsModel
         public DelegateCommand BackBtn => new DelegateCommand(GoBack);
         public DelegateCommand AgreeBtn => new DelegateCommand(AgreeClick);
         public DelegateCommand DeleteBtn => new DelegateCommand(DeleteClickAsync);
-
-
+        public DelegateCommand AddBtnShipper => new DelegateCommand(AddShipper);
+        public DelegateCommand<string> AddTypeCategory => new DelegateCommand<string>(Add_TypeCategory);
+        
         #endregion
 
+
+        private void Add_TypeCategory(string model)
+        {
+            var parameters = new NavigationParameters
+                                {
+                                  { "goback", "AddProduct" },
+                                  {"entity", model }
+                                };
+            _regionManager.RequestNavigate("MainRegion", "AddTypeCategory", parameters);
+        }
+
+        private void AddShipper()
+        {
+            var parameters = new NavigationParameters
+                                {
+                                  { "goback", "AddProduct" }
+                                };
+            _regionManager.RequestNavigate("MainRegion", "AddShipper", parameters);
+        }
 
         private async void DeleteClickAsync()
         {

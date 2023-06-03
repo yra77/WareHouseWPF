@@ -79,6 +79,7 @@
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
                         
                         <ComboBox Grid.Column="0" 
@@ -90,24 +91,39 @@
                         
                     <controls:MyTextBox Height="25"
                                         Grid.Column="1"
+                                        Margin="10,0,0,0"
                                         IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                         SelectedType="digit"
                                         MaxLength="10"
-                             VerticalContentAlignment="Center"
-                             FontFamily="Verdana"
-                             FontSize="14"
-                             Text="{Binding Path=ProductModel.TypeId, UpdateSourceTrigger=PropertyChanged}"/>
+                                        VerticalContentAlignment="Center"
+                                        FontFamily="Verdana"
+                                        FontSize="14"
+                                        Text="{Binding Path=ProductModel.TypeId, UpdateSourceTrigger=PropertyChanged}"/>
 
+                        <Button Grid.Column="2"
+                                VerticalAlignment="Center"
+                                Padding="0,5,0,5"
+                                Margin="10,0,0,0"
+                                Background="{DynamicResource hc_btnAdd}"
+                                Foreground="{DynamicResource hc_btnAddText}"
+                                FontWeight="Medium"
+                                BorderThickness="0"
+                                Command="{Binding AddTypeCategory}"
+                                CommandParameter="productType"
+                                Content="{p:Loc AddType}"/>
                     </Grid>
+                    
                     
                     <TextBlock Text="{p:Loc Category}"
                                Foreground="{DynamicResource ap_span}"
                                FontFamily="Verdana"
                                 Margin="0,15,0,0"/>
 
+                    
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
 
@@ -120,13 +136,27 @@
 
                         <controls:MyTextBox Height="25"
                                             Grid.Column="1" 
-                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                                        SelectedType="digit"
-                                        MaxLength="10"
-                             VerticalContentAlignment="Center"
-                             FontFamily="Verdana"
-                             FontSize="14"
-                             Text="{Binding Path=ProductModel.CategoryId, UpdateSourceTrigger=PropertyChanged}"/>
+                                            Margin="10,0,0,0"
+                                            IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                            SelectedType="digit"
+                                            MaxLength="10"
+                                            VerticalContentAlignment="Center"
+                                            FontFamily="Verdana"
+                                            FontSize="14"
+                                            Text="{Binding Path=ProductModel.CategoryId, UpdateSourceTrigger=PropertyChanged}"/>
+
+                        <Button Grid.Column="2"
+                                VerticalAlignment="Center"
+                                Padding="0,5,0,5"
+                                Margin="10,0,0,0"
+                                Background="{DynamicResource hc_btnAdd}"
+                                Foreground="{DynamicResource hc_btnAddText}"
+                                FontWeight="Medium"
+                                BorderThickness="0"
+                                Command="{Binding AddTypeCategory}"
+                                CommandParameter="categories"
+                                Content="{p:Loc AddCategory}"/>
+
                     </Grid>
 
                     <TextBlock Text="{p:Loc Quantity}"
@@ -159,11 +189,12 @@
                     <TextBlock Text="{p:Loc Shipper}"
                                Foreground="{DynamicResource ap_span}"
                                FontFamily="Verdana"
-                                Margin="0,15,0,0"/>
+                               Margin="0,15,0,0"/>
 
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1*"/>
                             <ColumnDefinition Width="1*"/>
                         </Grid.ColumnDefinitions>
 
@@ -174,28 +205,75 @@
                                   DisplayMemberPath="Name"
                                   />
 
-                        <controls:MyTextBox Height="25"
+                    <controls:MyTextBox Height="25"
+                                        Margin="10,0,0,0"
                                         Grid.Column="1" 
                                         IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                                         SelectedType="digit"
                                         MaxLength="5"
-                             VerticalContentAlignment="Center"
-                             FontFamily="Verdana"
-                             FontSize="14"
-                             Text="{Binding Path=ProductModel.ShipperId, UpdateSourceTrigger=PropertyChanged}"/>
+                                        VerticalContentAlignment="Center"
+                                        FontFamily="Verdana"
+                                        FontSize="14"
+                                        Text="{Binding Path=ProductModel.ShipperId, UpdateSourceTrigger=PropertyChanged}"/>
+
+                        <Button Grid.Column="2"
+                                VerticalAlignment="Center"
+                                Padding="0,5,0,5"
+                                Margin="10,0,0,0"
+                                Background="{DynamicResource hc_btnAdd}"
+                                Foreground="{DynamicResource hc_btnAddText}"
+                                FontWeight="Medium"
+                                BorderThickness="0"
+                                Command="{Binding AddBtnShipper}"
+                                Content="{p:Loc AddShipper}"/>
                     </Grid>
+                    
 
                     <TextBlock Text="{p:Loc Code}"
                                Foreground="{DynamicResource ap_span}"
                                FontFamily="Verdana"
                                 Margin="0,15,0,0"/>
-                    <controls:MyTextBox Height="25"
-                                        IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
-                                        SelectedType="digit"
-                             VerticalContentAlignment="Center"
-                             FontFamily="Verdana"
-                             FontSize="14"
-                             Text="{Binding Path=ProductModel.Code, UpdateSourceTrigger=PropertyChanged}"/>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <controls:MyTextBox Grid.Column="0"
+                                            Height="25"
+                                            IsValid="{Binding IsValidInput, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                                            SelectedType="digit"
+                                            VerticalContentAlignment="Center"
+                                            FontFamily="Verdana"
+                                            FontSize="14"
+                                            Text="{Binding Path=ProductModel.Code, UpdateSourceTrigger=PropertyChanged}"/>
+
+                        <Button Grid.Column="1"
+                                VerticalAlignment="Center"
+                                Padding="0,5,0,5"
+                                Margin="10,0,0,0"
+                                Background="{DynamicResource hc_btnAdd}"
+                                Foreground="{DynamicResource hc_btnAddText}"
+                                FontWeight="Medium"
+                                BorderThickness="0"
+                                Command="{Binding ConnectCamBtn}"
+                                Content="{p:Loc ConnectCam}"/>
+
+                        <Button Grid.Column="2"
+                                VerticalAlignment="Center"
+                                Padding="0,5,0,5"
+                                Margin="10,0,0,0"
+                                Background="{DynamicResource hc_btnAdd}"
+                                Foreground="{DynamicResource hc_btnAddText}"
+                                FontWeight="Medium"
+                                BorderThickness="0"
+                                Command="{Binding ConnectAppBtn}"
+                                Content="{p:Loc ConnectApp}"/>
+
+                    </Grid>
+
 
                     <TextBlock Text="{p:Loc WarehouseNumber}"
                                Foreground="{DynamicResource ap_span}"

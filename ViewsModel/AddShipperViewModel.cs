@@ -19,7 +19,10 @@ namespace WareHouseWPF.ViewsModel
     internal class AddShipperViewModel : BaseViewModel, INavigationAware
     {
 
-       
+
+        private string _goback;
+
+
         public AddShipperViewModel(IRegionManager regionManager,
                              ITranslationSource translation,
                              IVerifyService verifyService,
@@ -146,7 +149,25 @@ namespace WareHouseWPF.ViewsModel
 
         private void GoBack()
         {
-            _regionManager.RequestNavigate("MainRegion", "Home");
+            if (_goback != null)
+            {
+                if (_goback == "AddAccounting")
+                {
+                    var param = new NavigationParameters
+                    {
+                           {"entity", "arrival" }
+                    };
+                    _regionManager.RequestNavigate("MainRegion", _goback, param);
+                }
+                else
+                {
+                    _regionManager.RequestNavigate("MainRegion", _goback);
+                }
+            }
+            else
+            {
+                _regionManager.RequestNavigate("MainRegion", "Home");
+            }
         }
 
 
@@ -166,7 +187,7 @@ namespace WareHouseWPF.ViewsModel
         public void OnNavigatedTo(NavigationContext navigationContext)
         {
             IsDeleteVisible = "Collapsed";
-
+            _goback = null;
             Bank_Details = new BankDetails();
 
             ShipperMod = new Shipper();
@@ -181,6 +202,12 @@ namespace WareHouseWPF.ViewsModel
                 {
                     Bank_Details = ShipperMod.BankAccount[0];
                 }
+            }
+
+            var goback = navigationContext.Parameters["goback"];
+            if (goback != null)
+            {
+                _goback = goback.ToString();
             }
         }
 

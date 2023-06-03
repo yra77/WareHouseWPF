@@ -6,6 +6,7 @@ using WareHouseWPF.Services.Localisation;
 using WareHouseWPF.Services.DataService;
 using WareHouseWPF.Services.AccessRoles;
 using WareHouseWPF.Services.Repository;
+using WareHouseWPF.Services.Search;
 using WareHouseWPF.Services.Sort;
 using WareHouseWPF.Services.Auth;
 using WareHouseWPF.ViewsModel;
@@ -53,6 +54,7 @@ namespace WareHouseWPF
             containerRegistry.RegisterSingleton<ITranslationSource, TranslationSource>();
             containerRegistry.RegisterSingleton<IAccessRole, AccessRole>();
             containerRegistry.RegisterSingleton<ISortService, SortService>();
+            containerRegistry.RegisterScoped<ISearch, Search>();
 
 
             // register pages

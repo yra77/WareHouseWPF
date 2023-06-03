@@ -3,6 +3,7 @@
 using WareHouseWPF.Events;
 using WareHouseWPF.Models;
 using WareHouseWPF.Services.Sort;
+using WareHouseWPF.Services.Search;
 using WareHouseWPF.Controls.Listviews;
 using WareHouseWPF.Services.DataService;
 using WareHouseWPF.Services.AccessRoles;
@@ -22,6 +23,7 @@ using System.ComponentModel;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
+
 namespace WareHouseWPF.ViewsModel
 {
     internal class HomeViewModel : BaseViewModel, INavigationAware
@@ -38,7 +40,8 @@ namespace WareHouseWPF.ViewsModel
                              IAccessRole accessRole,
                              ITranslationSource translation,
                              IEventAggregator eventAggregator,
-                             ISortService sortService)
+                             ISortService sortService,
+                             ISearch search)
             : base()
         {
             _eventAggregator = eventAggregator;
@@ -48,10 +51,10 @@ namespace WareHouseWPF.ViewsModel
             _sortService = sortService;
             _translation = translation;
             _accessRole = accessRole;
+            _search = search;
 
             _isComeIn = false;
             IsLoaded = "Hidden";//Visible
-            Logout = _employeeAuth.Role + " Logout";
             DateToday = DateTime.Now.ToShortDateString();
             DatePickerLanguage = XmlLanguage.GetLanguage(WareHouseWPF.Properties.Settings.Default.Language.IetfLanguageTag);
 
@@ -228,6 +231,14 @@ namespace WareHouseWPF.ViewsModel
         }
 
 
+        private string _searchText;
+        public string SearchText
+        {
+            get => _searchText;
+            set => SetProperty(ref _searchText, value);
+        }
+
+
         public DelegateCommand ClientsBtn => new DelegateCommand(ClientsPrint);
         public DelegateCommand EmployeesBtn => new DelegateCommand(EmployeesPrint);
         public DelegateCommand ShippersBtn => new DelegateCommand(ShippersPrint);
@@ -243,9 +254,15 @@ namespace WareHouseWPF.ViewsModel
         public DelegateCommand LogOutBtn => new DelegateCommand(LogOut_Click);
         public DelegateCommand<object> AccountingBtn => new DelegateCommand<object>(AccountingPrint);
         public DelegateCommand<string> HeaderClick => new DelegateCommand<string>(Header_Click);
+        public DelegateCommand SearchBtn => new DelegateCommand(SearchClick);
 
         #endregion
 
+
+        private void SearchClick()
+        {
+
+        }
 
         private void Header_Click(string columnName)
         {
@@ -317,6 +334,7 @@ namespace WareHouseWPF.ViewsModel
                 IsLoaded = "Visible";
 
                 ListClient = new List<ClientModel>(await _dataService.GetDataAsync<ClientModel>());
+                _search.CreateList(_tableName, ListClient);
                 _regionManager.RequestNavigate("ListViewRegion", "ClientList");
 
                 _tableName = "Client";
@@ -333,8 +351,9 @@ namespace WareHouseWPF.ViewsModel
                 IsLoaded = "Visible";
 
                 ListEmployee = new List<Employee>(await _dataService.GetDataAsync<Employee>());
-
                 _tableName = "Employee";
+                _search.CreateList(_tableName, ListEmployee);
+
                 IsLoaded = "Hidden";
             }
         }
@@ -348,8 +367,9 @@ namespace WareHouseWPF.ViewsModel
                 IsLoaded = "Visible";
 
                 ListShipper = new List<Shipper>(await _dataService.GetDataAsync<Shipper>());
-
                 _tableName = "Shipper";
+                _search.CreateList(_tableName, ListShipper);
+
                 IsLoaded = "Hidden";
             }
         }
@@ -366,6 +386,7 @@ namespace WareHouseWPF.ViewsModel
                 IsLoaded = "Visible";
 
                 ListProduct = new List<Product>(await _dataService.GetDataAsync<Product>());
+                _search.CreateList(_tableName, ListProduct);
 
                 RaisePropertyChanged("ListProduct");
 
@@ -382,8 +403,9 @@ namespace WareHouseWPF.ViewsModel
                 IsLoaded = "Visible";
 
                 ListCategory = new List<Categories>(await _dataService.GetDataAsync<Categories>());
-
                 _tableName = "Category";
+                _search.CreateList(_tableName, ListCategory);
+
                 IsLoaded = "Hidden";
             }
         }
@@ -397,9 +419,11 @@ namespace WareHouseWPF.ViewsModel
                 IsLoaded = "Visible";
 
                 ListType = new List<ProductType>(await _dataService.GetDataAsync<ProductType>());
+                _tableName = "ProductType";
+                _search.CreateList(_tableName, ListType);
 
                 RaisePropertyChanged("ListType");
-                _tableName = "ProductType";
+               
                 IsLoaded = "Hidden";
             }
         }
@@ -476,6 +500,42 @@ namespace WareHouseWPF.ViewsModel
             UpdateTime();
         }
 
+        public void Search()
+        {
+            switch (_tableName)
+            {
+                case "Employee":
+                    ListEmployee = _search.SearchEmployee(SearchText);
+                    RaisePropertyChanged("ListEmployee");
+                    break;
+
+                case "Client":
+                    ListClient = _search.SearchClient(SearchText);
+                    RaisePropertyChanged("ListClient");
+                    break;
+
+                case "Shipper":
+                    ListShipper = _search.SearchShipper(SearchText);
+                    RaisePropertyChanged("ListShipper");
+                    break;
+
+                case "Product":
+                    ListProduct = _search.SearchProduct(SearchText);
+                    RaisePropertyChanged("ListProduct");
+                    break;
+
+                case "Category":
+                    ListCategory = _search.SearchCategory(SearchText);
+                    RaisePropertyChanged("ListCategory");
+                    break;
+
+                case "ProductType":
+                    ListType = _search.SearchProductType(SearchText);
+                    RaisePropertyChanged("ListType");
+                    break;
+            }
+        }
+
 
         #region Interfaces
 
@@ -485,6 +545,11 @@ namespace WareHouseWPF.ViewsModel
 
             switch (args.PropertyName)
             {
+
+                case "SearchText":
+                        Search();
+                    break;
+
                 case "SelectedItem":
 
                     if (SelectedItem != null && HighestPermission)
@@ -592,7 +657,9 @@ namespace WareHouseWPF.ViewsModel
                                                out _mediumPermission,
                                                out _lowPermission,
                                                out _lowestPermission);
-             
+
+                Logout = _employeeAuth.Role + " Logout";
+
                 if (LowPermission)
                 {
                     ProductsPrint();

@@ -8,8 +8,8 @@
       prism:ViewModelLocator.AutoWireViewModel="true"
       xmlns:control="clr-namespace:WareHouseWPF.Controls.Spinner"
       xmlns:system="clr-namespace:System;assembly=mscorlib"
-      xmlns:p="clr-namespace:WareHouseWPF.Services.Localisation"
-      mc:Ignorable="d" 
+      xmlns:p="clr-namespace:WareHouseWPF.Services.Localisation" xmlns:controls="clr-namespace:WareHouseWPF.Controls.Entrys"
+             mc:Ignorable="d" 
       d:DesignHeight="650" d:DesignWidth="1000">
   
     
@@ -197,14 +197,16 @@
                 <StackPanel Orientation="Horizontal" 
                             HorizontalAlignment="Right"
                             Margin="0,0,30,0">
-                    
-                <TextBox VerticalContentAlignment="Center"
+
+                    <controls:MyTextBox VerticalContentAlignment="Center"
+                             SelectedType="mixed"
                              Height="25" 
                              Width="250"
                              FontSize="14"
                              Background="{DynamicResource h_searchBackground}"
                              TextWrapping="Wrap"
-                             TextAlignment="Left"/>
+                             TextAlignment="Left"
+                             Text="{Binding SearchText, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <Button Padding="10,0,10,0"
                         Height="25"
@@ -213,7 +215,8 @@
                         Foreground="{DynamicResource h_ButtonSearchText}"
                         BorderBrush="{DynamicResource h_ButtonSearchBorder}" 
                         BorderThickness="0"
-                        Content="Search"/>
+                        Content="Search"
+                        Command="{Binding SearchBtn}"/>
                 </StackPanel>
 
             </Grid>

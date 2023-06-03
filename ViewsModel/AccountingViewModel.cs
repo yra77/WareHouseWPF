@@ -2,6 +2,7 @@
 
 using WareHouseWPF.Events;
 using WareHouseWPF.Models;
+using WareHouseWPF.Services.Sort;
 using WareHouseWPF.Services.AccessRoles;
 using WareHouseWPF.Services.DataService;
 using WareHouseWPF.Services.Localisation;
@@ -14,7 +15,7 @@ using Prism.Commands;
 
 using System.Collections.Generic;
 using System.ComponentModel;
-using WareHouseWPF.Services.Sort;
+
 
 namespace WareHouseWPF.ViewsModel
 {

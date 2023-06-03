@@ -11,12 +11,19 @@
     
     <Grid>
 
+        <TextBlock Text="{p:Loc Products}"
+                   Margin="0,20,0,20"
+                   FontSize="14"
+                   FontFamily="Verdana"
+                   FontWeight="Bold"
+                   HorizontalAlignment="Center"/>
+
         <ListView HorizontalContentAlignment="Stretch"
               ItemsSource="{Binding ListProduct, UpdateSourceTrigger=PropertyChanged}"
               SelectedItem="{Binding SelectedProduct}" 
               SelectedIndex="-1"
               SelectionMode="Single"
-              Margin="10,10,10,10"
+              Margin="10,50,10,10"
               Grid.Row="1">
             
             <ListView.Resources>

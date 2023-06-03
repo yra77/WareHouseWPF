@@ -11,13 +11,14 @@ using Prism.Events;
 using Prism.Regions;
 using Prism.Commands;
 
-using System.Collections.Generic;
-using System.Linq;
-using System.Windows;
-using System.ComponentModel;
-using System.Diagnostics;
-using System;
 using System.Collections.ObjectModel;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Windows;
+using System.Linq;
+using System;
+using System.Security.Permissions;
+
 
 namespace WareHouseWPF.ViewsModel
 {
@@ -195,6 +196,7 @@ namespace WareHouseWPF.ViewsModel
         public DelegateCommand AgreeBtn => new DelegateCommand(AgreeClick);
         public DelegateCommand DeleteBtn => new DelegateCommand(DeleteClickAsync);
         public DelegateCommand AddListCode => new DelegateCommand(Add_ListCode);
+        public DelegateCommand AddBtnShipper => new DelegateCommand(AddShipper);
         public DelegateCommand<string> DeleteListCodeItem => new DelegateCommand<string>(Delete_ListCodeItem);
 
         #endregion
@@ -303,6 +305,15 @@ namespace WareHouseWPF.ViewsModel
         {
             ListCode_Quantity.Add(new ListCode() { Code = Code, Quantity = Quantity });
             RaisePropertyChanged("ListCode_Quantity");
+        }
+
+        private void AddShipper()
+        {
+            var parameters = new NavigationParameters
+                                {
+                                  { "goback", "AddAccounting" }
+                                };
+            _regionManager.RequestNavigate("MainRegion", "AddShipper", parameters);
         }
 
         private void GoBack()

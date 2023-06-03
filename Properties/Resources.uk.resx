@@ -142,7 +142,7 @@
     <value>Додати товар</value>
   </data>
   <data name="AddShipper" xml:space="preserve">
-    <value>Додати відправника</value>
+    <value>Додати постачальника</value>
   </data>
   <data name="AddType" xml:space="preserve">
     <value>Додати тип</value>
@@ -203,6 +203,12 @@
   </data>
   <data name="CodeQuantityGoods" xml:space="preserve">
     <value>Код та кількість товару</value>
+  </data>
+  <data name="ConnectApp" xml:space="preserve">
+    <value>Підключити додаток</value>
+  </data>
+  <data name="ConnectCam" xml:space="preserve">
+    <value>Підключити камеру</value>
   </data>
   <data name="DateArrival" xml:space="preserve">
     <value>Дата прибуття</value>

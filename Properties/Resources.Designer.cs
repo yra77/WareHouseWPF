@@ -322,6 +322,24 @@ namespace WareHouseWPF.Properties {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Connect app.
+        /// </summary>
+        internal static string ConnectApp {
+            get {
+                return ResourceManager.GetString("ConnectApp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Ищет локализованную строку, похожую на Connect camera.
+        /// </summary>
+        internal static string ConnectCam {
+            get {
+                return ResourceManager.GetString("ConnectCam", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на Date arrival.
         /// </summary>
         internal static string DateArrival {

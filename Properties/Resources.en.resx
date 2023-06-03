@@ -204,6 +204,12 @@
   <data name="CodeQuantityGoods" xml:space="preserve">
     <value>Code and quantity of goods</value>
   </data>
+  <data name="ConnectApp" xml:space="preserve">
+    <value>Connect app</value>
+  </data>
+  <data name="ConnectCam" xml:space="preserve">
+    <value>Connect camera</value>
+  </data>
   <data name="DateArrival" xml:space="preserve">
     <value>Date arrival</value>
   </data>

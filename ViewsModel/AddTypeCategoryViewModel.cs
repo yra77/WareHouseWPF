@@ -20,6 +20,7 @@ namespace WareHouseWPF.ViewsModel
 
 
         private string _modelName;
+        private string _goback;
 
 
         public AddTypeCategoryViewModel(IEventAggregator eventAggregator,
@@ -154,7 +155,14 @@ namespace WareHouseWPF.ViewsModel
 
         private void GoBack()
         {
-            _regionManager.RequestNavigate("MainRegion", "Home");
+            if (_goback != null)
+            {
+                _regionManager.RequestNavigate("MainRegion", _goback);
+            }
+            else
+            {
+                _regionManager.RequestNavigate("MainRegion", "Home");
+            }
         }
 
         private void Convert_Item(object item)
@@ -202,6 +210,12 @@ namespace WareHouseWPF.ViewsModel
                     else if (_modelName == "categories")
                     {
                         OtherModel = new Categories();
+                    }
+
+                    var goback = navigationContext.Parameters["goback"];
+                    if (goback != null)
+                    {
+                        _goback = goback.ToString();
                     }
 
                     var item = navigationContext.Parameters["item"];

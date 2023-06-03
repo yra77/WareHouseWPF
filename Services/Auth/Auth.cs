@@ -1,12 +1,12 @@
 ﻿
 
 using WareHouseWPF.Models;
-using WareHouseWPF.Properties;
 using WareHouseWPF.Services.Repository;
+using WareHouseWPF.Services.Localisation;
 using WareHouseWPF.Services.VerifyService;
 
 using System.Threading.Tasks;
-using WareHouseWPF.Services.Localisation;
+
 
 namespace WareHouseWPF.Services.Auth
 {
